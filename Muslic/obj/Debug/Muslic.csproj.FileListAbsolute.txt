@@ -1,0 +1,6 @@
+c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\bin\Debug\Muslic.exe.config
+c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\obj\Debug\Muslic.csprojResolveAssemblyReference.cache
+c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\bin\Debug\Muslic.exe
+c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\bin\Debug\Muslic.pdb
+c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\obj\Debug\Muslic.exe
+c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\obj\Debug\Muslic.pdb
