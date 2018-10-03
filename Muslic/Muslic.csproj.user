@@ -9,4 +9,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <StartArguments>"G:\Etudes\MEL\isochrone_MEL\reseau_multimodal_MEL_2018.txt" "G:\Etudes\MEL\isochrone_MEL\mat_MEL_a9h.txt" "G:\Etudes\MEL\isochrone_MEL\titi" "G:\Etudes\MEL\isochrone_MEL\test_param.txt"</StartArguments>
   </PropertyGroup>
+  <PropertyGroup>
+    <PublishUrlHistory>publish\</PublishUrlHistory>
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>fr-FR</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
 </Project>

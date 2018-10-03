@@ -122,7 +122,15 @@ namespace Muslic
 
                 if (fich_ini.EndOfStream == false)
                 {
-                    aff_hor.tmapmax = float.Parse(fich_ini.ReadLine());
+                    if (System.Globalization.NumberFormatInfo.CurrentInfo.NumberDecimalSeparator == ".")
+                    {
+                        aff_hor.tmapmax = float.Parse(fich_ini.ReadLine().Replace(",", "."));
+                    }
+                    else
+                    {
+                        aff_hor.tmapmax = float.Parse(fich_ini.ReadLine().Replace(".", ","));
+                    }
+
                   //  Console.WriteLine(aff_hor.tmapmax);
                 }
                 if (fich_ini.EndOfStream == false)
@@ -140,7 +148,14 @@ namespace Muslic
 
                 if (fich_ini.EndOfStream == false)
                 {
-                    aff_hor.temps_max = float.Parse(fich_ini.ReadLine());
+                    if (System.Globalization.NumberFormatInfo.CurrentInfo.NumberDecimalSeparator == ".")
+                    {
+                        aff_hor.temps_max = float.Parse(fich_ini.ReadLine().Replace(",","."));
+                    }
+                    else
+                    {
+                        aff_hor.temps_max = float.Parse(fich_ini.ReadLine().Replace(".", ","));
+                    }
                     //Console.WriteLine(aff_hor.temps_max);
                 }
                 if (fich_ini.EndOfStream == false)
