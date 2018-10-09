@@ -1,1 +1,7 @@
 C:\Users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\bin\Release\Muslic.exe.config
+C:\Users\palmierp\Documents\Visual Studio 2012\Projects\Muslic\Muslic\bin\Release\Muslic.exe
+C:\Users\palmierp\Documents\Visual Studio 2012\Projects\Muslic\Muslic\bin\Release\Muslic.pdb
+C:\Users\palmierp\Documents\Visual Studio 2012\Projects\Muslic\Muslic\obj\Release\Muslic.csproj.CoreCompileInputs.cache
+C:\Users\palmierp\Documents\Visual Studio 2012\Projects\Muslic\Muslic\obj\Release\Muslic.exe
+C:\Users\palmierp\Documents\Visual Studio 2012\Projects\Muslic\Muslic\obj\Release\Muslic.pdb
+C:\Users\palmierp\Documents\Visual Studio 2012\Projects\Muslic\Muslic\obj\Release\Muslic.csprojResolveAssemblyReference.cache

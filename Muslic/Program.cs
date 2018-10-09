@@ -11,7 +11,7 @@ namespace Muslic
         static void Main(string[] args)
         {
             if (args.Count()>3)
-            {
+            {  
                 string nom_reseau = args[0];
                 string nom_matrice = args[1];
                 string nom_sortie = args[2];
@@ -215,6 +215,9 @@ namespace Muslic
                     //openFileDialog1.ShowDialog();
 
                     string carte = "t links";
+
+                    int avancement=0;
+                    Console.Write("Lecture du réseau " + avancement + "%");
                     //            System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator = ".";
                     System.IO.FileStream flux;
 
@@ -223,33 +226,32 @@ namespace Muslic
                     //   projet.reseaux[num_res].matrices.Add(new matrix());
                     System.IO.StreamWriter fich_log = new System.IO.StreamWriter(aff_hor.nom_sortie + "_log.txt", false, System.Text.Encoding.UTF8);
                     fich_log.WriteLine("Version: Muslic " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
-                    fich_log.WriteLine("Début de la procédure: " + System.DateTime.Now.ToString("dddd dd MMMM yyyy HH:mm:ss.fff"));
-                    fich_log.WriteLine("Paramètres par défaut:");
-                    fich_log.WriteLine("Temps correspondance minimum par défaut:" + aff_hor.texte_tboa);
-                    fich_log.WriteLine("Temps correspondance maximum par défaut:" + aff_hor.texte_tboa_max);
-                    fich_log.WriteLine("Pondération correspondance:" + aff_hor.texte_cboa);
-                    fich_log.WriteLine("Pondération attente:" + aff_hor.texte_cwait);
-                    fich_log.WriteLine("Pondération temps flux à horaires:" + aff_hor.texte_cveh);
-                    fich_log.WriteLine("Pondération temps individuel:" + aff_hor.texte_cmap);
-                    fich_log.WriteLine("Coefficient temps individuel:" + aff_hor.texte_coef_tmap);
-                    fich_log.WriteLine("Coût maximum:" + aff_hor.temps_max);
-                    fich_log.WriteLine("Temps individuel maximal:" + aff_hor.tmapmax.ToString());
-                    fich_log.WriteLine("Pondération du péage:" + aff_hor.texte_toll.ToString());
-                    fich_log.WriteLine("Nombre de jours:" + aff_hor.nb_jours);
-                    fich_log.WriteLine("Interdiction demi-tours:" + aff_hor.demitours);
+                    fich_log.WriteLine("Process start time: " + System.DateTime.Now.ToString("dddd dd MMMM yyyy HH:mm:ss.fff"));
+                    fich_log.WriteLine("Default parameters:");
+                    fich_log.WriteLine("Minimum transfer time:" + aff_hor.texte_tboa);
+                    fich_log.WriteLine("Maximum transfer time:" + aff_hor.texte_tboa_max);
+                    fich_log.WriteLine("Transfer weight:" + aff_hor.texte_cboa);
+                    fich_log.WriteLine("Wait weight:" + aff_hor.texte_cwait);
+                    fich_log.WriteLine("Time based links weight:" + aff_hor.texte_cveh);
+                    fich_log.WriteLine("Individual links weight:" + aff_hor.texte_cmap);
+                    fich_log.WriteLine("Individual travel time factor:" + aff_hor.texte_coef_tmap);
+                    fich_log.WriteLine("Generalized travel time maximum:" + aff_hor.temps_max);
+                    fich_log.WriteLine("Individual travel time maximum:" + aff_hor.tmapmax.ToString());
+                    fich_log.WriteLine("Toll weight:" + aff_hor.texte_toll.ToString());
+                    fich_log.WriteLine("Number of days:" + aff_hor.nb_jours);
+                    fich_log.WriteLine("Prohibited U-turns:" + aff_hor.demitours);
 
-                    fich_log.WriteLine("Algorithme:" + aff_hor.algorithme);
-                    fich_log.WriteLine("Nombre d'intervalles:" + aff_hor.max_nb_buckets);
-                    fich_log.WriteLine("Paramètre d'échelle de l'algorithme:" + aff_hor.param_dijkstra);
-                    fich_log.WriteLine("Paramètre exposant de l'algorithme:" + aff_hor.pu);
+                    fich_log.WriteLine("Algorithm:" + aff_hor.algorithme);
+                    fich_log.WriteLine("Algorithm number of buckets:" + aff_hor.max_nb_buckets);
+                    fich_log.WriteLine("Algorithm scale parameter:" + aff_hor.param_dijkstra);
+                    fich_log.WriteLine("Algorithm power parameter:" + aff_hor.pu);
 
-                    fich_log.WriteLine("Sortie chemins:" + aff_hor.sortie_chemins);
-                    fich_log.WriteLine("Sortie temps:" + aff_hor.sortie_temps);
-                    fich_log.WriteLine("Noms fichiers sortie:" + aff_hor.nom_sortie);
-                    fich_log.WriteLine("Filtre type de tronçons:" + aff_hor.texte_filtre_sortie.ToString());
-                    fich_log.WriteLine("Cout maximal:" + aff_hor.temps_max.ToString());
-                    fich_log.WriteLine("Sortie noeuds:" + aff_hor.sortie_noeuds.ToString());
-                    fich_log.WriteLine("Sortie isoles:" + aff_hor.sortie_isoles.ToString());
+                    fich_log.WriteLine("Output paths:" + aff_hor.sortie_chemins);
+                    fich_log.WriteLine("Output times:" + aff_hor.sortie_temps);
+                    fich_log.WriteLine("Output filenames:" + aff_hor.nom_sortie);
+                    fich_log.WriteLine("Link type filter:" + aff_hor.texte_filtre_sortie.ToString());
+                    fich_log.WriteLine("Output nodes:" + aff_hor.sortie_noeuds.ToString());
+                    fich_log.WriteLine("Output isolated nodes:" + aff_hor.sortie_isoles.ToString());
 
 
                     projet.reseaux[projet.reseau_actif].nom = System.IO.Path.GetFileNameWithoutExtension(nom_reseau);
@@ -259,6 +261,13 @@ namespace Muslic
                     lecture:
 
                         chaine = fichier_reseau.ReadLine();
+
+                        if (avancement< (int)((100 * flux.Position) / flux.Length) - 4)
+                        {
+                            Console.Write( "Network import:" + ((100 * flux.Position) / flux.Length).ToString() + "%");
+                            avancement = (int)((100 * flux.Position) / flux.Length);
+                            
+                        }
 
                         if (chaine.Trim().Length == 0) goto lec;
                         if (chaine.Substring(0, 7) == "t nodes")
@@ -635,12 +644,13 @@ namespace Muslic
 
                         }*/
 
-                    fich_log.WriteLine("Réseau:" + nom_reseau);
-                    fich_log.WriteLine("Noeuds:" + projet.reseaux[projet.reseau_actif].nodes.Count);
-                    fich_log.WriteLine("Liens:" + projet.reseaux[projet.reseau_actif].links.Count);
+                    fich_log.WriteLine("Network:" + nom_reseau);
+                    fich_log.WriteLine("Nodes:" + projet.reseaux[projet.reseau_actif].nodes.Count);
+                    fich_log.WriteLine("Links:" + projet.reseaux[projet.reseau_actif].links.Count);
 
                     //construction du graphe
                     // table des prédécesseurs et successeurs de noeuds
+                    avancement = 0;
 
                     for (i = 0; i < projet.reseaux[projet.reseau_actif].links.Count; i++)
                     {
@@ -651,11 +661,16 @@ namespace Muslic
                         projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[i].no].succ.Add(i);
                         //                    Console.SetCursorPosition(1, Console.CursorTop-1);
 
-
+                        if (avancement < (int)((100 * i) / projet.reseaux[projet.reseau_actif].links.Count) - 4)
+                        {
+                            Console.Write( "Network topology generation:" + ((100 * i) / projet.reseaux[projet.reseau_actif].links.Count).ToString() + "%");
+                            avancement = (int)((100 * i) / projet.reseaux[projet.reseau_actif].links.Count);
+                            
+                        }
 
                     }
 
-
+                    avancement = 0;
                     // table des prédécesseurs et successeurs de tronçons
                     //Console.WriteLine("création de la topologie des noeuds terminée");
 
@@ -699,7 +714,7 @@ namespace Muslic
 
 
                     //fich_log.WriteLine("Virages et correspondances:" + projet.reseaux[projet.reseau_actif].nbturns);
-                    fich_log.WriteLine("Services horaires:" + projet.reseaux[projet.reseau_actif].nbservices);
+                    fich_log.WriteLine("Time based services:" + projet.reseaux[projet.reseau_actif].nbservices);
 
                     /*************************Import des pénalités et temps de correspondances************************/
                     /*************************Import des pénalités et temps de correspondances************************/
@@ -711,7 +726,7 @@ namespace Muslic
 
                     if (System.IO.File.Exists(nom_penalites) == true && System.IO.File.Exists(nom_reseau) == true && System.IO.File.Exists(nom_matrice) == true && nom_reseau != null && nom_matrice != null)
                     {
-                        fich_log.WriteLine("Pénalités:" + nom_penalites);
+                        fich_log.WriteLine("Penalties and transfers:" + nom_penalites);
                         string[] penal;
                         int ni, nj, nk;
                         int linei, linej, ntri, ntrj;
@@ -721,6 +736,12 @@ namespace Muslic
                         System.IO.StreamReader fichier_penalites = new System.IO.StreamReader(flux, System.Text.Encoding.UTF8);
                         while (fichier_penalites.EndOfStream == false)
                         {
+                            if (avancement < (int)((100 * flux.Position) / flux.Length) - 4)
+                            {
+                                Console.Write("Penalties and transfers import:" + ((100 * flux.Position) / flux.Length).ToString() + "%");
+                                avancement = (int)((100 * flux.Position) / flux.Length);
+                                
+                            }
 
 
                             chaine = fichier_penalites.ReadLine();
@@ -837,7 +858,7 @@ namespace Muslic
                         Queue<int> calcules = new Queue<int>();
                         List<List<int>> gga_nq = new List<List<int>>();
 
-
+                        avancement = 0;
 
 
                         //initilisation
@@ -861,10 +882,10 @@ namespace Muslic
 
                         flux = new System.IO.FileStream(nom_matrice, System.IO.FileMode.Open);
                         System.IO.StreamReader fichier_matrice = new System.IO.StreamReader(flux, System.Text.Encoding.UTF8);
-
-                        fich_log.WriteLine("Matrice:" + nom_matrice);
+                        avancement = 0;
+                        fich_log.WriteLine("Matrix:" + nom_matrice);
                         DateTime t1 = DateTime.Now;
-                        fich_log.WriteLine("Début Calcul: " + t1.ToString("dddd dd MMMM yyyy HH:mm:ss.fff"));
+                        fich_log.WriteLine("Computation start time: " + t1.ToString("dddd dd MMMM yyyy HH:mm:ss.fff"));
                         fich_log.Flush();
                     lec1:
                         while (fichier_matrice.EndOfStream == false)
@@ -872,7 +893,12 @@ namespace Muslic
                         lecture:
                             projet.param_affectation_horaire.nb_pop = 0;
                             chaine = fichier_matrice.ReadLine();
-
+                            if (avancement < (int)((100 * flux.Position) / flux.Length))
+                            {
+                                Console.Write( "Shortest paths computing...:" + ((100 * flux.Position) / flux.Length).ToString() + "%");
+                                avancement = (int)((100 * flux.Position) / flux.Length);
+                                
+                            }
                             if (chaine.Trim().Length == 0) goto lec1;
                             if (chaine == "")
                             {
@@ -1740,7 +1766,7 @@ namespace Muslic
                                 }
                                 else
                                 {
-                                    fich_log.WriteLine("Erreur od " + libod + ":" + chaine + ": noeud origine inexistant!");
+                                    fich_log.WriteLine("OD error " + libod + ":" + chaine + ": non existing origin node!");
                                 }
                                 int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
                                 //         MessageBox.Show(projet.param_affectation_horaire.algorithme.ToString());
@@ -2297,7 +2323,7 @@ namespace Muslic
                                 }
                                 else
                                 {
-                                    fich_log.WriteLine("Erreur OD " + libod + ":" + chaine + ": noeud destination inexistant!");
+                                    fich_log.WriteLine("OD error" + libod + ":" + chaine + ": non existing destination node!");
                                 }
 
 
@@ -2313,7 +2339,7 @@ namespace Muslic
                                 }
                                 else
                                 {
-                                    fich_log.WriteLine("Erreur OD " + libod + ":" + chaine + ": destination inaccessible!");
+                                    fich_log.WriteLine("OD error" + libod + ":" + chaine + ": unreachable destination!");
                                 }
 
                                 pivot = arrivee;
@@ -2820,7 +2846,7 @@ namespace Muslic
                                 }
                                 else
                                 {
-                                    fich_log.WriteLine("Erreur OD " + libod + ":" + chaine + ": noeud destination inexistant!");
+                                    fich_log.WriteLine("OD error" + libod + ":" + chaine + ": non existing destination node!");
                                 }
                                 int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
 
@@ -3662,7 +3688,7 @@ namespace Muslic
                                 }
                                 else
                                 {
-                                    fich_log.WriteLine("Erreur OD " + libod + ":" + ":" + chaine + ": noeud origine inexistant!");
+                                    fich_log.WriteLine("OD error" + libod + ":" + ":" + chaine + ": non existing origin node!");
                                 }
 
                                 if (arrivee != -1)
@@ -3676,7 +3702,7 @@ namespace Muslic
                                 }
                                 else
                                 {
-                                    fich_log.WriteLine("Erreur OD " + libod + ":" + chaine + ": noeud origine inaccessible!");
+                                    fich_log.WriteLine("OD error" + libod + ":" + chaine + ": unreachable origin node!");
                                 }
 
                                 pivot = arrivee;
@@ -3986,9 +4012,9 @@ namespace Muslic
 
                         }
                         DateTime t2 = DateTime.Now;
-                        fich_log.WriteLine("Fin Calcul: " + t2.ToString("dddd dd MMMM yyyy HH:mm:ss.fff"));
+                        fich_log.WriteLine("Computation end time: " + t2.ToString("dddd dd MMMM yyyy HH:mm:ss.fff"));
 
-                        fich_log.WriteLine("Temps Calcul:" + t2.Subtract(t1).TotalSeconds + " sec");
+                        fich_log.WriteLine("Computation duration:" + t2.Subtract(t1).TotalSeconds + " sec");
                         fich_log.Close();
 
                         fich_sortie.Close();
