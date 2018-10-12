@@ -220,7 +220,7 @@ namespace Muslic
                     int ctop = Console.CursorTop;
                     int cleft = Console.CursorLeft;
                     Console.SetCursorPosition(cleft, ctop);
-                    Console.Write("Lecture du réseau " + avancement + "%");
+                    Console.Write("Network import:" + avancement + "%");
                     //            System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator = ".";
                     System.IO.FileStream flux;
 
@@ -256,9 +256,7 @@ namespace Muslic
                     fich_log.WriteLine("Output nodes:" + aff_hor.sortie_noeuds.ToString());
                     fich_log.WriteLine("Output isolated nodes:" + aff_hor.sortie_isoles.ToString());
 
-                    Console.WriteLine();
-                    ctop = Console.CursorTop;
-                    cleft = Console.CursorLeft;
+                    
 
                     projet.reseaux[projet.reseau_actif].nom = System.IO.Path.GetFileNameWithoutExtension(nom_reseau);
                 lec:
