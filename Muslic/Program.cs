@@ -256,6 +256,9 @@ namespace Muslic
                     fich_log.WriteLine("Output nodes:" + aff_hor.sortie_noeuds.ToString());
                     fich_log.WriteLine("Output isolated nodes:" + aff_hor.sortie_isoles.ToString());
 
+                    Console.WriteLine();
+                    ctop = Console.CursorTop;
+                    cleft = Console.CursorLeft;
 
                     projet.reseaux[projet.reseau_actif].nom = System.IO.Path.GetFileNameWithoutExtension(nom_reseau);
                 lec:
@@ -655,6 +658,9 @@ namespace Muslic
                     //construction du graphe
                     // table des prédécesseurs et successeurs de noeuds
                     avancement = 0;
+                    Console.WriteLine();
+                    ctop = Console.CursorTop;
+                    cleft = Console.CursorLeft;
 
                     for (i = 0; i < projet.reseaux[projet.reseau_actif].links.Count; i++)
                     {
@@ -676,6 +682,10 @@ namespace Muslic
                     }
 
                     avancement = 0;
+                    Console.WriteLine();
+                    ctop = Console.CursorTop;
+                    cleft = Console.CursorLeft;
+
                     // table des prédécesseurs et successeurs de tronçons
                     //Console.WriteLine("création de la topologie des noeuds terminée");
 
@@ -865,6 +875,9 @@ namespace Muslic
                         List<List<int>> gga_nq = new List<List<int>>();
 
                         avancement = 0;
+                        Console.WriteLine();
+                        ctop = Console.CursorTop;
+                        cleft = Console.CursorLeft;
 
 
                         //initilisation
