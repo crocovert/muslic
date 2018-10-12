@@ -217,6 +217,9 @@ namespace Muslic
                     string carte = "t links";
 
                     int avancement=0;
+                    int ctop = Console.CursorTop;
+                    int cleft = Console.CursorLeft;
+                    Console.SetCursorPosition(cleft, ctop);
                     Console.Write("Lecture du réseau " + avancement + "%");
                     //            System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator = ".";
                     System.IO.FileStream flux;
@@ -264,6 +267,7 @@ namespace Muslic
 
                         if (avancement< (int)((100 * flux.Position) / flux.Length) - 4)
                         {
+                            Console.SetCursorPosition(cleft, ctop);
                             Console.Write( "Network import:" + ((100 * flux.Position) / flux.Length).ToString() + "%");
                             avancement = (int)((100 * flux.Position) / flux.Length);
                             
@@ -663,6 +667,7 @@ namespace Muslic
 
                         if (avancement < (int)((100 * i) / projet.reseaux[projet.reseau_actif].links.Count) - 4)
                         {
+                            Console.SetCursorPosition(cleft, ctop);
                             Console.Write( "Network topology generation:" + ((100 * i) / projet.reseaux[projet.reseau_actif].links.Count).ToString() + "%");
                             avancement = (int)((100 * i) / projet.reseaux[projet.reseau_actif].links.Count);
                             
@@ -738,6 +743,7 @@ namespace Muslic
                         {
                             if (avancement < (int)((100 * flux.Position) / flux.Length) - 4)
                             {
+                                Console.SetCursorPosition(cleft, ctop);
                                 Console.Write("Penalties and transfers import:" + ((100 * flux.Position) / flux.Length).ToString() + "%");
                                 avancement = (int)((100 * flux.Position) / flux.Length);
                                 
@@ -895,6 +901,7 @@ namespace Muslic
                             chaine = fichier_matrice.ReadLine();
                             if (avancement < (int)((100 * flux.Position) / flux.Length))
                             {
+                                Console.SetCursorPosition(cleft, ctop);
                                 Console.Write( "Shortest paths computing...:" + ((100 * flux.Position) / flux.Length).ToString() + "%");
                                 avancement = (int)((100 * flux.Position) / flux.Length);
                                 
