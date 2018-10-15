@@ -1556,7 +1556,7 @@ namespace Muslic
                                 projet.param_affectation_horaire.param_dijkstra = aff_hor.param_dijkstra;
                                 projet.param_affectation_horaire.max_nb_buckets = aff_hor.max_nb_buckets;
                                 projet.param_affectation_horaire.pu = aff_hor.pu;
-                                projet.param_affectation_horaire.demitours = aff_hor.demitours;
+                                
                             }
 
 
@@ -1839,8 +1839,9 @@ namespace Muslic
 
                                         if (projet.param_affectation_horaire.demitours == true)
                                         {
+
                                             if (troncon_pivot.no == troncon_succ.nd)
-                                            {
+                                            { 
                                                 penalite = -1;
                                             }
                                             else
@@ -2919,8 +2920,10 @@ namespace Muslic
 
                                         if (projet.param_affectation_horaire.demitours == true)
                                         {
+
                                             if (troncon_pivot.nd == troncon_pred.no)
                                             {
+     
                                                 penalite = -1;
                                             }
                                             else
@@ -4228,7 +4231,7 @@ namespace Muslic
         {
             public float x, y, tempst = 1e38f, tmap = 0, tatt, temps, cout, ncor, ttoll;
             public string i;
-            public bool ci = false, is_valid = true, is_visible = false, is_intersection = true;
+            public bool ci = false, is_valid = true, is_visible = false, is_intersection = false;
             public List<int> pred = new List<int>();
             public List<int> succ = new List<int>();
             //public List<float> ui = new List<float>();
