@@ -952,6 +952,10 @@ namespace Muslic
                                     sens = 2;
                                 }
                             }
+                            else
+                            {
+                                sens = 1;
+                            }
                             if (ch.Length > 6)
                             {
                                 if (ch[6].Length == 0)
@@ -1552,6 +1556,7 @@ namespace Muslic
                                 projet.param_affectation_horaire.param_dijkstra = aff_hor.param_dijkstra;
                                 projet.param_affectation_horaire.max_nb_buckets = aff_hor.max_nb_buckets;
                                 projet.param_affectation_horaire.pu = aff_hor.pu;
+                                projet.param_affectation_horaire.demitours = aff_hor.demitours;
                             }
 
 
