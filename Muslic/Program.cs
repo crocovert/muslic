@@ -2617,6 +2617,7 @@ namespace Muslic
                                             {
                                                 if (projet.reseaux[projet.reseau_actif].links[arrivee].touche != 0 && (projet.reseaux[projet.reseau_actif].links[arrivee].ligne < 0 || projet.param_affectation_horaire.sortie_temps == 2))
                                                 {
+        
                                                     texte = libod + ";" + p;
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].no].i;
                                                     texte += "-" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].nd].i;
@@ -2655,7 +2656,10 @@ namespace Muslic
                                                     if ((projet.reseaux[projet.reseau_actif].links[arrivee].cout) <= projet.param_affectation_horaire.temps_max)
                                                     {
 
-                                                        fich_sortie.WriteLine(texte);
+                                                        if (test_temps_per_min_depart(projet, arrivee) == true)
+                                                        {
+                                                            fich_sortie.WriteLine(texte);
+                                                        }
                                                     }
                                                 }
                                                 else if (projet.reseaux[projet.reseau_actif].links[arrivee].touche == 0 && projet.param_affectation_horaire.sortie_isoles == true)
@@ -4018,7 +4022,12 @@ namespace Muslic
                                                     //                                itineraire = "MAP," + itineraire;
                                                     if (projet.reseaux[projet.reseau_actif].links[arrivee].cout <= projet.param_affectation_horaire.temps_max)
                                                     {
-                                                        fich_sortie.WriteLine(texte);
+                                                        if (test_temps_per_min_arrivee(projet, arrivee) == true)
+                                                        {
+                                                            fich_sortie.WriteLine(texte);
+                                                        }
+
+
                                                     }
                                                 }
                                                 else if (projet.reseaux[projet.reseau_actif].links[arrivee].touche == 0 && projet.param_affectation_horaire.sortie_isoles == true)
@@ -4384,5 +4393,49 @@ namespace Muslic
 
         }
 
-}
+        public static bool test_temps_per_min_depart(etude projet, int arrivee)
+        {
+
+            bool reponse = true;
+            link arc = new link();
+            arc = projet.reseaux[projet.reseau_actif].links[arrivee];
+            int  ni;
+            ni = arc.no;
+            foreach (int k in projet.reseaux[projet.reseau_actif].nodes[ni].succ)
+            {
+                int nj = projet.reseaux[projet.reseau_actif].links[k].nd;
+                int ligne = projet.reseaux[projet.reseau_actif].links[k].ligne;
+                if ((nj == arc.nd ) && !(arc.ligne == ligne) && projet.reseaux[projet.reseau_actif].links[k].touche != 0)
+                {
+                    if (arc.cout > projet.reseaux[projet.reseau_actif].links[k].cout)
+                        {
+                        reponse = false;
+                        }
+                 }
+            }
+            return reponse;
+        }
+        public static bool test_temps_per_min_arrivee(etude projet, int arrivee)
+        {
+
+            bool reponse = true;
+            link arc = new link();
+            arc = projet.reseaux[projet.reseau_actif].links[arrivee];
+            int nj;
+            nj = arc.nd;
+            foreach (int k in projet.reseaux[projet.reseau_actif].nodes[nj].pred)
+            {
+                int ni = projet.reseaux[projet.reseau_actif].links[k].no;
+                int ligne = projet.reseaux[projet.reseau_actif].links[k].ligne;
+                if ((ni == arc.no) && !(arc.ligne == ligne) && projet.reseaux[projet.reseau_actif].links[k].touche!=0)
+                {
+                    if (arc.cout > projet.reseaux[projet.reseau_actif].links[k].cout)
+                    {
+                        reponse = false;
+                    }
+                }
+            }
+            return reponse;
+        }
+    }
 }
