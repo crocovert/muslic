@@ -2623,7 +2623,7 @@ namespace Muslic
                                                     texte += "-" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].nd].i;
                                                     texte += ";" + (projet.reseaux[projet.reseau_actif].links[arrivee].ligne).ToString("0");
                                                     texte += ";" + i.ToString("0");
-                                                    texte += ";" + jour.ToString("0.000");
+                                                    texte += ";" + jour.ToString("0");
                                                     texte += ";" + horaire.ToString("0.000");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].h.ToString("0.000");
                                                     texte += ";" + (-horaire + projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
@@ -3992,7 +3992,7 @@ namespace Muslic
                                                     texte += "-" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].nd].i;
                                                     texte += ";" + (projet.reseaux[projet.reseau_actif].links[arrivee].ligne).ToString("0");
                                                     texte += ";" + i.ToString("0");
-                                                    texte += ";" + jour.ToString("0.000");
+                                                    texte += ";" + jour.ToString("0");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].h.ToString("0.000");
                                                     texte += ";" + horaire.ToString("0.000");
                                                     texte += ";" + (horaire - projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
