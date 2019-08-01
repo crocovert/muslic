@@ -2657,11 +2657,11 @@ namespace Muslic
                                                     float ti;
                                                     if (arc.ligne < 0)
                                                     {
-                                                        ti = arc.h - arc.temps;
+                                                        ti = -horaire + arc.h - arc.temps;
                                                     }
                                                     else
                                                     {
-                                                        ti = arc.h - (arc.services[arc.service].hf - arc.services[arc.service].hd);
+                                                        ti = -horaire + arc.h - (arc.services[arc.service].hf - arc.services[arc.service].hd);
                                                     }
                                                     texte += ";" + ti.ToString("0.000");
 
@@ -4043,11 +4043,11 @@ namespace Muslic
                                                     float ti;
                                                     if (arc.ligne<0)
                                                     {
-                                                        ti = arc.h - arc.temps;
+                                                        ti = horaire - (arc.h - arc.temps);
                                                     }
                                                     else
                                                     {
-                                                        ti = arc.h - (arc.services[arc.service].hf - arc.services[arc.service].hd);
+                                                        ti = horaire - (arc.h - (arc.services[arc.service].hf - arc.services[arc.service].hd));
                                                     }
                                                     texte += ";" + ti.ToString("0.000");
 

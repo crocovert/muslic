@@ -4,3 +4,14 @@ c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\bin\Debug\
 c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\bin\Debug\Muslic.pdb
 c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\obj\Debug\Muslic.exe
 c:\users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\obj\Debug\Muslic.pdb
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\bin\Debug\Muslic.exe.config
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\bin\Debug\Muslic.exe.manifest
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\bin\Debug\Muslic.application
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\bin\Debug\Muslic.exe
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\bin\Debug\Muslic.pdb
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\obj\Debug\Muslic.csprojAssemblyReference.cache
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\obj\Debug\Muslic.csproj.CoreCompileInputs.cache
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\obj\Debug\Muslic.exe.manifest
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\obj\Debug\Muslic.application
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\obj\Debug\Muslic.exe
+C:\Users\palmierp\Documents\GitHub\muslic\Muslic\obj\Debug\Muslic.pdb
