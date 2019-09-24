@@ -2657,7 +2657,9 @@ namespace Muslic
                                                     float ti;
                                                     if (arc.ligne < 0)
                                                     {
-                                                        ti = -horaire + arc.h - arc.temps;
+                                                        ti = -horaire + (arc.h - arc.temps * projet.param_affectation_horaire.coef_tmap[arc.type]);
+
+                                                        //ti = -horaire + arc.h - arc.temps;
                                                     }
                                                     else
                                                     {
@@ -4043,7 +4045,7 @@ namespace Muslic
                                                     float ti;
                                                     if (arc.ligne<0)
                                                     {
-                                                        ti = horaire - (arc.h - arc.temps);
+                                                        ti = horaire - (arc.h - arc.temps*projet.param_affectation_horaire.coef_tmap[arc.type]);
                                                     }
                                                     else
                                                     {
