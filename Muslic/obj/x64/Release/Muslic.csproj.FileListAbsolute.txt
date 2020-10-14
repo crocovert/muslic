@@ -5,3 +5,13 @@ C:\Users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\obj\x64\Re
 C:\Users\palmierp\documents\visual studio 2012\Projects\Muslic\Muslic\obj\x64\Release\Muslic.pdb
 C:\Users\palmierp\Documents\Visual Studio 2012\Projects\Muslic\Muslic\obj\x64\Release\Muslic.csproj.CoreCompileInputs.cache
 C:\Users\palmierp\Documents\Visual Studio 2012\Projects\Muslic\Muslic\obj\x64\Release\Muslic.csprojResolveAssemblyReference.cache
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Release\Muslic.exe.config
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Release\Muslic.exe.manifest
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Release\Muslic.application
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Release\Muslic.exe
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Release\Muslic.pdb
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.csproj.CoreCompileInputs.cache
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.exe.manifest
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.application
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.exe
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.pdb
