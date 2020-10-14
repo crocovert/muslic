@@ -4016,9 +4016,23 @@ namespace Muslic
                                                     texte += ";" + (projet.reseaux[projet.reseau_actif].links[arrivee].ligne).ToString("0");
                                                     texte += ";" + i.ToString("0");
                                                     texte += ";" + jour.ToString("0");
+
+
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].h.ToString("0.000");
                                                     texte += ";" + horaire.ToString("0.000");
-                                                    texte += ";" + (horaire - projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
+                                                    link arc = new link();
+                                                    arc = projet.reseaux[projet.reseau_actif].links[arrivee];
+                                                    float ti;
+                                                    if (arc.ligne < 0)
+                                                    {
+                                                        ti = horaire - (arc.h + arc.temps * projet.param_affectation_horaire.coef_tmap[arc.type]);
+                                                    }
+                                                    else
+                                                    {
+                                                        ti = horaire - (arc.h + (arc.services[arc.service].hf - arc.services[arc.service].hd));
+                                                    }
+                                                    texte += ";" + ti.ToString("0.000");
+                                                    
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tveh.ToString("0.000");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tmap.ToString("0.000");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tatt.ToString("0.000");
@@ -4040,19 +4054,7 @@ namespace Muslic
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].pivot.ToString("0");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].type;
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].ttoll.ToString("0.000");
-                                                    link arc = new link();
-                                                    arc = projet.reseaux[projet.reseau_actif].links[arrivee];
-                                                    float ti;
-                                                    if (arc.ligne<0)
-                                                    {
-                                                        ti = horaire - (arc.h - arc.temps*projet.param_affectation_horaire.coef_tmap[arc.type]);
-                                                    }
-                                                    else
-                                                    {
-                                                        ti = horaire - (arc.h - (arc.services[arc.service].hf - arc.services[arc.service].hd));
-                                                    }
-                                                    texte += ";" + ti.ToString("0.000");
-
+                                                    texte += ";" + (horaire - projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
                                                     //                                itineraire = "MAP," + itineraire;
                                                     if (projet.reseaux[projet.reseau_actif].links[arrivee].cout <= projet.param_affectation_horaire.temps_max)
                                                     {

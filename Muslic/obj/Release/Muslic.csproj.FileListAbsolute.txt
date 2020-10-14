@@ -16,3 +16,14 @@ C:\Users\palmierp\Documents\GitHub\muslic\Muslic\bin\Release\Muslic.exe.manifest
 C:\Users\palmierp\Documents\GitHub\muslic\Muslic\bin\Release\Muslic.application
 C:\Users\palmierp\Documents\GitHub\muslic\Muslic\obj\Release\Muslic.exe.manifest
 C:\Users\palmierp\Documents\GitHub\muslic\Muslic\obj\Release\Muslic.application
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\Release\Muslic.csprojAssemblyReference.cache
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\Release\Muslic.csproj.CoreCompileInputs.cache
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\Release\Muslic.exe
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\Release\Muslic.pdb
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\Release\Muslic.exe.config
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\Release\Muslic.exe.manifest
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\Release\Muslic.application
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\Release\Muslic.exe
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\Release\Muslic.pdb
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\Release\Muslic.exe.manifest
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\Release\Muslic.application
