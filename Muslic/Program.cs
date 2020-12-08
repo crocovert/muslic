@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -224,7 +225,7 @@ namespace Muslic
                     //            System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator = ".";
                     System.IO.FileStream flux;
 
-                    flux = new System.IO.FileStream(nom_reseau, System.IO.FileMode.Open);
+                    flux = new System.IO.FileStream(nom_reseau, System.IO.FileMode.Open,FileAccess.Read,System.IO.FileShare.Read);
                     System.IO.StreamReader fichier_reseau = new System.IO.StreamReader(flux, Encoding.UTF8);
                     //   projet.reseaux[num_res].matrices.Add(new matrix());
                     System.IO.StreamWriter fich_log = new System.IO.StreamWriter(aff_hor.nom_sortie + "_log.txt", false, System.Text.Encoding.UTF8);
@@ -745,7 +746,7 @@ namespace Muslic
                         int linei, linej, ntri, ntrj;
                         float tps_mvt;
                         flux.Close();
-                        flux = new System.IO.FileStream(nom_penalites, System.IO.FileMode.Open);
+                        flux = new System.IO.FileStream(nom_penalites, System.IO.FileMode.Open,FileAccess.Read,FileShare.Read);
                         System.IO.StreamReader fichier_penalites = new System.IO.StreamReader(flux, System.Text.Encoding.UTF8);
                         while (fichier_penalites.EndOfStream == false)
                         {
@@ -897,7 +898,7 @@ namespace Muslic
                         float horaire1 = 0;
                         flux.Close();
 
-                        flux = new System.IO.FileStream(nom_matrice, System.IO.FileMode.Open);
+                        flux = new System.IO.FileStream(nom_matrice, System.IO.FileMode.Open,FileAccess.Read,FileShare.Read);
                         System.IO.StreamReader fichier_matrice = new System.IO.StreamReader(flux, System.Text.Encoding.UTF8);
                         avancement = 0;
                         fich_log.WriteLine("Matrix:" + nom_matrice);
