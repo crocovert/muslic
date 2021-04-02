@@ -30,33 +30,34 @@ namespace Muslic
         {
 
             System.IO.StreamWriter fich_ini = new System.IO.StreamWriter(nom_fichier_ini, false, System.Text.Encoding.UTF8);
-            String texte = parametres.algorithme +
-                "\n" + parametres.demitours +
-                "\n" + parametres.max_nb_buckets +
-                "\n" + parametres.nb_jours +
-                "\n" + parametres.nom_matrice +
-                "\n" + parametres.nom_penalites +
-                "\n" + parametres.nom_reseau +
-                "\n" + parametres.nom_sortie +
-                "\n" + parametres.param_dijkstra +
-                "\n" + parametres.pu +
-                "\n" + parametres.sortie_chemins +
-                "\n" + parametres.sortie_services +
-                "\n" + parametres.sortie_temps +
-                "\n" + parametres.sortie_turns +
-                "\n" + parametres.texte_cboa +
-                "\n" + parametres.texte_cmap +
-                "\n" + parametres.texte_coef_tmap +
-                "\n" + parametres.texte_cveh +
-                "\n" + parametres.texte_cwait +
-                "\n" + parametres.texte_tboa +
-                "\n" + parametres.texte_tboa_max +
-                "\n" + parametres.tmapmax +
-                "\n" + parametres.texte_toll +
-                "\n" + parametres.texte_filtre_sortie +
-                "\n" + parametres.temps_max +
-                "\n" + parametres.sortie_noeuds +
-                "\n" + parametres.sortie_isoles;
+            String texte = parametres.algorithme +";Algorithm"+
+                "\n" + parametres.demitours + ";Prohibited U-turns"+
+                "\n" + parametres.max_nb_buckets +";max buckets"+
+                "\n" + parametres.nb_jours +";number of days"+
+                "\n" + parametres.nom_matrice +";matrix file"+
+                "\n" + parametres.nom_penalites +";turns and transfers file"+
+                "\n" + parametres.nom_reseau +";network file"+
+                "\n" + parametres.nom_sortie +";generic output file"+
+                "\n" + parametres.param_dijkstra +";algorithm paramter+"+
+                "\n" + parametres.pu +";algorithm power"+
+                "\n" + parametres.sortie_chemins +";output paths"+
+                "\n" + parametres.sortie_services +";output services"+
+                "\n" + parametres.sortie_temps +";output travael times"+
+                "\n" + parametres.sortie_turns +";output turns adn transfers"+
+                "\n" + parametres.texte_cboa +";boarding weight"+
+                "\n" + parametres.texte_cmap +";individual mode weight"+
+                "\n" + parametres.texte_coef_tmap +";indivudal travel time factor"+
+                "\n" + parametres.texte_cveh +";in-vehicle time weight"+
+                "\n" + parametres.texte_cwait +";wait tim weight"+
+                "\n" + parametres.texte_tboa +";min transfer time"+
+
+                "\n" + parametres.texte_tboa_max +";max transfer time"+
+                "\n" + parametres.tmapmax +";max individual travel time "+
+                "\n" + parametres.texte_toll +";toll weight"+
+                "\n" + parametres.texte_filtre_sortie +";output filter types"+
+                "\n" + parametres.temps_max +";max travel cost"+
+                "\n" + parametres.sortie_noeuds +";output nodes"+
+                "\n" + parametres.sortie_isoles+";output isolated links";
 
             fich_ini.WriteLine(texte);
             fich_ini.Close();
@@ -78,71 +79,71 @@ namespace Muslic
             {
                 System.IO.StreamReader fich_ini = new System.IO.StreamReader(nom_parametres);
 
-                aff_hor.algorithme = int.Parse(fich_ini.ReadLine());
+                aff_hor.algorithme = int.Parse(fich_ini.ReadLine().Split(';')[0]);
 //                Console.WriteLine(aff_hor.algorithme);
-                aff_hor.demitours = bool.Parse(fich_ini.ReadLine());
+                aff_hor.demitours = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.demitours);
-                aff_hor.max_nb_buckets = int.Parse(fich_ini.ReadLine());
+                aff_hor.max_nb_buckets = int.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.max_nb_buckets);
-                aff_hor.nb_jours = int.Parse(fich_ini.ReadLine());
+                aff_hor.nb_jours = int.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.nb_jours);
-                aff_hor.nom_matrice = fich_ini.ReadLine();
+                aff_hor.nom_matrice = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.nom_matrice);
-                aff_hor.nom_penalites = fich_ini.ReadLine();
+                aff_hor.nom_penalites = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.nom_penalites);
-                aff_hor.nom_reseau = fich_ini.ReadLine();
+                aff_hor.nom_reseau = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.nom_reseau);
-                aff_hor.nom_sortie = fich_ini.ReadLine();
+                aff_hor.nom_sortie = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.nom_sortie);
-                aff_hor.param_dijkstra = int.Parse(fich_ini.ReadLine());
+                aff_hor.param_dijkstra = int.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.param_dijkstra);
-                aff_hor.pu = int.Parse(fich_ini.ReadLine());
+                aff_hor.pu = int.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.pu);
-                aff_hor.sortie_chemins = bool.Parse(fich_ini.ReadLine());
+                aff_hor.sortie_chemins = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.sortie_chemins);
-                aff_hor.sortie_services = bool.Parse(fich_ini.ReadLine());
+                aff_hor.sortie_services = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.sortie_services);
-                aff_hor.sortie_temps = int.Parse(fich_ini.ReadLine());
+                aff_hor.sortie_temps = int.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.sortie_temps);
-                aff_hor.sortie_turns = bool.Parse(fich_ini.ReadLine());
+                aff_hor.sortie_turns = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.sortie_turns);
-                aff_hor.texte_cboa = fich_ini.ReadLine();
+                aff_hor.texte_cboa = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.texte_cboa);
-                aff_hor.texte_cmap = fich_ini.ReadLine();
+                aff_hor.texte_cmap = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.texte_cmap);
-                aff_hor.texte_coef_tmap = fich_ini.ReadLine();
+                aff_hor.texte_coef_tmap = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.texte_coef_tmap);
-                aff_hor.texte_cveh = fich_ini.ReadLine();
+                aff_hor.texte_cveh = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.texte_cveh);
-                aff_hor.texte_cwait = fich_ini.ReadLine();
+                aff_hor.texte_cwait = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.texte_cwait);
-                aff_hor.texte_tboa = fich_ini.ReadLine();
+                aff_hor.texte_tboa = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.texte_tboa);
-                aff_hor.texte_tboa_max = fich_ini.ReadLine();
+                aff_hor.texte_tboa_max = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.texte_tboa_max);
 
                 if (fich_ini.EndOfStream == false)
                 {
                     if (System.Globalization.NumberFormatInfo.CurrentInfo.NumberDecimalSeparator == ".")
                     {
-                        aff_hor.tmapmax = float.Parse(fich_ini.ReadLine().Replace(",", "."));
+                        aff_hor.tmapmax = float.Parse(fich_ini.ReadLine().Replace(",", ".").Split(';')[0]);
                     }
                     else
                     {
-                        aff_hor.tmapmax = float.Parse(fich_ini.ReadLine().Replace(".", ","));
+                        aff_hor.tmapmax = float.Parse(fich_ini.ReadLine().Replace(".", ",").Split(';')[0]);
                     }
 
                   //  Console.WriteLine(aff_hor.tmapmax);
                 }
                 if (fich_ini.EndOfStream == false)
                 {
-                    aff_hor.texte_toll = fich_ini.ReadLine();
+                    aff_hor.texte_toll = fich_ini.ReadLine().Split(';')[0];
                     //Console.WriteLine(aff_hor.texte_toll);
                 }
             
                 if (fich_ini.EndOfStream == false)
                 {
-                    aff_hor.texte_filtre_sortie = fich_ini.ReadLine();
+                    aff_hor.texte_filtre_sortie = fich_ini.ReadLine().Split(';')[0];
                    //Console.WriteLine(aff_hor.texte_filtre_sortie);
             }
         
@@ -151,22 +152,22 @@ namespace Muslic
                 {
                     if (System.Globalization.NumberFormatInfo.CurrentInfo.NumberDecimalSeparator == ".")
                     {
-                        aff_hor.temps_max = float.Parse(fich_ini.ReadLine().Replace(",","."));
+                        aff_hor.temps_max = float.Parse(fich_ini.ReadLine().Replace(",",".").Split(';')[0]);
                     }
                     else
                     {
-                        aff_hor.temps_max = float.Parse(fich_ini.ReadLine().Replace(".", ","));
+                        aff_hor.temps_max = float.Parse(fich_ini.ReadLine().Replace(".", ",").Split(';')[0]);
                     }
                     //Console.WriteLine(aff_hor.temps_max);
                 }
                 if (fich_ini.EndOfStream == false)
                 {
-                    aff_hor.sortie_noeuds = bool.Parse(fich_ini.ReadLine());
+                    aff_hor.sortie_noeuds = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                     //Console.WriteLine(aff_hor.sortie_noeuds);
                 }
                 if (fich_ini.EndOfStream == false)
                 {
-                    aff_hor.sortie_isoles = bool.Parse(fich_ini.ReadLine());
+                    aff_hor.sortie_isoles = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                     //Console.WriteLine(aff_hor.sortie_isoles);
                 }
                 fich_ini.Close();
