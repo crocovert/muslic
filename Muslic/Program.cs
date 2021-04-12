@@ -43,7 +43,7 @@ namespace Muslic
                 "\n" + parametres.sortie_chemins +";output paths"+
                 "\n" + parametres.sortie_services +";output services"+
                 "\n" + parametres.sortie_temps +";output travael times"+
-                "\n" + parametres.sortie_turns +";output turns adn transfers"+
+                "\n" + parametres.sortie_turns +";output turns and transfers"+
                 "\n" + parametres.texte_cboa +";boarding weight"+
                 "\n" + parametres.texte_cmap +";individual mode weight"+
                 "\n" + parametres.texte_coef_tmap +";indivudal travel time factor"+
@@ -825,6 +825,8 @@ namespace Muslic
 
 
                     }
+                    Console.SetCursorPosition(cleft, ctop);
+                    Console.Write("Penalties and transfers import:" + (100 ).ToString() + "%");
 
 
                     ////écrire réseau en XML////
