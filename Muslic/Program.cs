@@ -675,7 +675,7 @@ namespace Muslic
                         {
                             avancement = (int)((100 * (i+1)) / projet.reseaux[projet.reseau_actif].links.Count);
                             Console.SetCursorPosition(cleft, ctop);
-                            Console.Write("Network topology generation:" + ((100 * i) / projet.reseaux[projet.reseau_actif].links.Count).ToString() + "%");
+                            Console.Write("Network topology generation:" + ((100 * (i+1)) / projet.reseaux[projet.reseau_actif].links.Count).ToString() + "%");
 
                         }
 
