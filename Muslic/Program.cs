@@ -671,9 +671,9 @@ namespace Muslic
                         projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[i].no].succ.Add(i);
                         //                    Console.SetCursorPosition(1, Console.CursorTop-1);
 
-                        if (avancement < (int)((100 * i) / projet.reseaux[projet.reseau_actif].links.Count) - 4)
+                        if (avancement < (int)((100 * (i+1)) / projet.reseaux[projet.reseau_actif].links.Count) - 4)
                         {
-                            avancement = (int)((100 * i) / projet.reseaux[projet.reseau_actif].links.Count);
+                            avancement = (int)((100 * (i+1)) / projet.reseaux[projet.reseau_actif].links.Count);
                             Console.SetCursorPosition(cleft, ctop);
                             Console.Write("Network topology generation:" + ((100 * i) / projet.reseaux[projet.reseau_actif].links.Count).ToString() + "%");
 
@@ -685,8 +685,7 @@ namespace Muslic
 
                     // table des prédécesseurs et successeurs de tronçons
                     //Console.WriteLine("création de la topologie des noeuds terminée");
-                    Console.SetCursorPosition(cleft, ctop);
-                    Console.Write("Network topology generation:" + 100.ToString() + "%");
+                    
                     Console.WriteLine();
                     ctop = Console.CursorTop;
                     cleft = Console.CursorLeft;
