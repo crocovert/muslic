@@ -682,14 +682,14 @@ namespace Muslic
                     }
 
                     avancement = 0;
-                    ctop = Console.CursorTop;
-                    cleft = Console.CursorLeft;
 
                     // table des prédécesseurs et successeurs de tronçons
                     //Console.WriteLine("création de la topologie des noeuds terminée");
                     Console.SetCursorPosition(cleft, ctop);
                     Console.Write("Network topology generation:" + 100.ToString() + "%");
                     Console.WriteLine();
+                    ctop = Console.CursorTop;
+                    cleft = Console.CursorLeft;
 
                     /*for (j = 0; j < projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[i].no].pred.Count; j++)
                     {
