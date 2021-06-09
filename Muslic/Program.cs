@@ -2767,12 +2767,12 @@ namespace Muslic
 
                                             if (projet.reseaux[projet.reseau_actif].links[predecesseur].services.Count > 0)
                                             {
-                                                int decal_jour = -(int)Math.Floor(horaire / 1440f);
+                                                int decal_jour = (int)Math.Floor(horaire / 1440f);
                                                 for (int kk = 0; kk < projet.reseaux[projet.reseau_actif].links[predecesseur].services.Count; kk++)
                                                 {
-                                                    if (decal_jour <= projet.param_affectation_horaire.nb_jours)
+                                                    if (Math.Abs(decal_jour) <= projet.param_affectation_horaire.nb_jours)
                                                     {
-                                                        if (projet.reseaux[projet.reseau_actif].nom_calendrier[projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].regime].Substring(jour - decal_jour, 1) == "O" && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hd - 1440f * decal_jour <= horaire && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hf - 1440f * decal_jour > horaire)
+                                                        if (projet.reseaux[projet.reseau_actif].nom_calendrier[projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].regime].Substring(jour + decal_jour, 1) == "O" && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hd + 1440f * decal_jour <= horaire && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hf + 1440f * decal_jour > horaire)
                                                         {
                                                             test_periode = true;
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].service = kk;
@@ -3005,12 +3005,12 @@ namespace Muslic
                                                     projet.reseaux[projet.reseau_actif].links[predecesseur].service = -1;
                                                     if (projet.reseaux[projet.reseau_actif].links[predecesseur].services.Count > 0)
                                                     {
-                                                        int decal_jour = -(int)(Math.Floor((projet.reseaux[projet.reseau_actif].links[pivot].h - penalite) / 1440f));
+                                                        int decal_jour = (int)(Math.Floor((projet.reseaux[projet.reseau_actif].links[pivot].h - penalite) / 1440f));
                                                         for (int kk = 0; kk < projet.reseaux[projet.reseau_actif].links[predecesseur].services.Count; kk++)
                                                         {
-                                                            if (decal_jour <= projet.param_affectation_horaire.nb_jours)
+                                                            if (Math.Abs(decal_jour) <= projet.param_affectation_horaire.nb_jours)
                                                             {
-                                                                if (projet.reseaux[projet.reseau_actif].nom_calendrier[projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].regime].Substring(jour - decal_jour, 1) == "O" && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hd - 1440f * decal_jour <= projet.reseaux[projet.reseau_actif].links[pivot].h - penalite && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hf - 1440f * decal_jour > projet.reseaux[projet.reseau_actif].links[pivot].h - penalite)
+                                                                if (projet.reseaux[projet.reseau_actif].nom_calendrier[projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].regime].Substring(jour + decal_jour, 1) == "O" && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hd + 1440f * decal_jour <= projet.reseaux[projet.reseau_actif].links[pivot].h - penalite && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hf + 1440f * decal_jour > projet.reseaux[projet.reseau_actif].links[pivot].h - penalite)
                                                                 {
                                                                     test_periode = true;
                                                                     projet.reseaux[projet.reseau_actif].links[predecesseur].service = kk;
@@ -3356,12 +3356,12 @@ namespace Muslic
                                                     int id_service = -1;
                                                     if (projet.reseaux[projet.reseau_actif].links[predecesseur].services.Count > 0)
                                                     {
-                                                        int decal_jour = -(int)(Math.Floor((projet.reseaux[projet.reseau_actif].links[pivot].h - penalite) / 1440f));
+                                                        int decal_jour = (int)(Math.Floor((projet.reseaux[projet.reseau_actif].links[pivot].h - penalite) / 1440f));
                                                         for (int kk = 0; kk < projet.reseaux[projet.reseau_actif].links[predecesseur].services.Count; kk++)
                                                         {
-                                                            if (decal_jour <= projet.param_affectation_horaire.nb_jours)
+                                                            if (Math.Abs(decal_jour) <= projet.param_affectation_horaire.nb_jours)
                                                             {
-                                                                if (projet.reseaux[projet.reseau_actif].nom_calendrier[projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].regime].Substring(jour - decal_jour, 1) == "O" && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hd - 1440f * decal_jour <= projet.reseaux[projet.reseau_actif].links[pivot].h - penalite && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hf - 1440f * decal_jour > projet.reseaux[projet.reseau_actif].links[pivot].h - penalite)
+                                                                if (projet.reseaux[projet.reseau_actif].nom_calendrier[projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].regime].Substring(jour + decal_jour, 1) == "O" && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hd + 1440f * decal_jour <= projet.reseaux[projet.reseau_actif].links[pivot].h - penalite && projet.reseaux[projet.reseau_actif].links[predecesseur].services[kk].hf + 1440f * decal_jour > projet.reseaux[projet.reseau_actif].links[pivot].h - penalite)
                                                                 {
                                                                     test_periode = true;
                                                                     id_service = kk;
