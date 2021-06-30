@@ -1798,7 +1798,7 @@ namespace Muslic
                                 }
                                 int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
                                 //         MessageBox.Show(projet.param_affectation_horaire.algorithme.ToString());
-                                while (gga_nq.Count > id_bucket || bucket_cout_max < id_bucket)
+                                while (gga_nq.Count > id_bucket || bucket_cout_max >= id_bucket)
                                 {
 
                                     while (gga_nq[id_bucket].Count == 0)
