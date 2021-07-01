@@ -97,7 +97,7 @@ namespace Muslic
                 //Console.WriteLine(aff_hor.nom_sortie);
                 aff_hor.param_dijkstra = int.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.param_dijkstra);
-                aff_hor.pu = int.Parse(fich_ini.ReadLine().Split(';')[0]);
+                aff_hor.pu = float.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.pu);
                 aff_hor.sortie_chemins = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.sortie_chemins);
