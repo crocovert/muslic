@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -3715,6 +3716,24 @@ namespace Muslic
 
 
                                             }
+
+                                            List<int> liste = new List<int>();
+                                            liste.Add(1289714);
+                                            liste.Add(233502);
+                                            liste.Add(233499);
+                                            liste.Add(1289712);
+
+                                            if (liste.Contains(pivot) || liste.Contains(predecesseur))
+                                                {
+                                                String texto = "pivot:" + pivot.ToString() + " " + projet.reseaux[projet.reseau_actif].links[pivot].temps.ToString() +
+                                                    " " + projet.reseaux[projet.reseau_actif].links[pivot].cout.ToString() +
+                                                    " " + projet.reseaux[projet.reseau_actif].links[pivot].tmap.ToString() +
+                                                    "pred:" + pivot.ToString() + " " + projet.reseaux[projet.reseau_actif].links[predecesseur].temps.ToString() +
+                                                    " " + projet.reseaux[projet.reseau_actif].links[predecesseur].cout.ToString() +
+                                                    " " + projet.reseaux[projet.reseau_actif].links[predecesseur].tmap.ToString();
+                                                fich_log.Write(texto);
+                                            }
+                                            
                                         }
                                     }
                                     //projet.reseaux[projet.reseau_actif].links[pivot].touche = 3;
