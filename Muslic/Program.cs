@@ -1998,7 +1998,7 @@ namespace Muslic
                                                 }
 
                                                 //successeur TC lignes différentes
-                                                else if (projet.reseaux[projet.reseau_actif].links[successeur].ligne != projet.reseaux[projet.reseau_actif].links[pivot].ligne && projet.param_affectation_horaire.cveh[succ_type] > 0 && projet.reseaux[projet.reseau_actif].links[successeur].ligne > 0)
+                                                else if (projet.reseaux[projet.reseau_actif].links[successeur].ligne != projet.reseaux[projet.reseau_actif].links[pivot].ligne && projet.param_affectation_horaire.cveh[succ_type] > 0 && projet.reseaux[projet.reseau_actif].links[successeur].ligne > 0 && projet.reseaux[projet.reseau_actif].links[pivot].ligne > 0)
                                                 {
                                                     int ii, jj, num_service = -1, h3 = 0, duree_periode, delta;
                                                     float h1 = 1e38f, h2 = 1e38f, cout2 = 1e38f;
@@ -2193,7 +2193,7 @@ namespace Muslic
                                                         if (projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hd >= projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].hf)
                                                         {
 
-                                                            if (projet.reseaux[projet.reseau_actif].links[successeur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hf /*+ projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].delta * 1440f*/ - projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cveh[succ_type] + projet.reseaux[projet.reseau_actif].links[successeur].toll * projet.param_affectation_horaire.ctoll[succ_type] && projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hd >= projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].hf)
+                                                            if (projet.reseaux[projet.reseau_actif].links[successeur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hf + projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].delta * 1440f - projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cveh[succ_type] + projet.reseaux[projet.reseau_actif].links[successeur].toll * projet.param_affectation_horaire.ctoll[succ_type] && projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hd >= projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].hf)
                                                             {
                                                                 bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
                                                                 gga_nq[bucket].Remove(successeur);
@@ -2224,7 +2224,7 @@ namespace Muslic
                                                     }
                                                 }
                                                 //successeurs TC lignes différentes
-                                                else if ((projet.reseaux[projet.reseau_actif].links[successeur].ligne != projet.reseaux[projet.reseau_actif].links[pivot].ligne) && projet.param_affectation_horaire.cveh[succ_type] > 0 && projet.reseaux[projet.reseau_actif].links[successeur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout)//&& (projet.reseaux[projet.reseau_actif].links[pivot].h + projet.param_affectation_horaire.tboa < projet.reseaux[projet.reseau_actif].links[successeur].services[projet.reseaux[projet.reseau_actif].links[successeur].service].hd + projet.reseaux[projet.reseau_actif].links[successeur].services[projet.reseaux[projet.reseau_actif].links[successeur].service].delta*1440f))
+                                                else if ((projet.reseaux[projet.reseau_actif].links[successeur].ligne != projet.reseaux[projet.reseau_actif].links[pivot].ligne) && projet.reseaux[projet.reseau_actif].links[successeur].ligne>0 && projet.reseaux[projet.reseau_actif].links[pivot].ligne > 0 && projet.param_affectation_horaire.cveh[succ_type] > 0 && projet.reseaux[projet.reseau_actif].links[successeur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout)//&& (projet.reseaux[projet.reseau_actif].links[pivot].h + projet.param_affectation_horaire.tboa < projet.reseaux[projet.reseau_actif].links[successeur].services[projet.reseaux[projet.reseau_actif].links[successeur].service].hd + projet.reseaux[projet.reseau_actif].links[successeur].services[projet.reseaux[projet.reseau_actif].links[successeur].service].delta*1440f))
                                                 {
                                                     int ii, jj, num_service = -1, h3 = -1, duree_periode, delta;
                                                     float h1 = 1e38f, h2 = 1e38f, cout2 = 1e38f;
@@ -3159,7 +3159,7 @@ namespace Muslic
                                                     }
                                                 }
 
-                                                //successeur TC lignes différentes
+                                                //predecesseur TC lignes différentes
                                                 else if (projet.reseaux[projet.reseau_actif].links[predecesseur].ligne != projet.reseaux[projet.reseau_actif].links[pivot].ligne && projet.reseaux[projet.reseau_actif].links[pivot].ligne > 0 && projet.reseaux[projet.reseau_actif].links[predecesseur].ligne > 0 && projet.param_affectation_horaire.cveh[pred_type] > 0)
                                                 {
                                                     int ii, jj, num_service = -1, h3 = 0, delta, duree_periode;
@@ -3214,7 +3214,7 @@ namespace Muslic
                                                     if (num_service != -1)
                                                     {
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].service = num_service;
-                                                        projet.reseaux[projet.reseau_actif].links[predecesseur].cout = projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hd) * projet.param_affectation_horaire.cveh[pred_type] + (-projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].delta * 1440f + projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[pred_type] + (temps_correspondance * projet.param_affectation_horaire.cboa[pivot_type]) + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type];
+                                                        projet.reseaux[projet.reseau_actif].links[predecesseur].cout = projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hd) * projet.param_affectation_horaire.cveh[pred_type] + (-projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].delta * 1440f + projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[pivot_type] + (temps_correspondance * projet.param_affectation_horaire.cboa[pivot_type]) + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type];
 
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].touche = 1;
 
@@ -3350,7 +3350,10 @@ namespace Muslic
                                             {
                                                 //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
                                                 bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
-                                                //successeurs marche à pied pivot MAP
+                                              
+                                                
+                                     //successeurs marche à pied pivot MAP
+
                                                 if (projet.reseaux[projet.reseau_actif].links[predecesseur].ligne < 0 && projet.reseaux[projet.reseau_actif].links[pivot].ligne < 0 && projet.param_affectation_horaire.cmap[pred_type] > 0 && (projet.reseaux[projet.reseau_actif].links[pivot].tmap + projet.reseaux[projet.reseau_actif].links[predecesseur].temps < projet.param_affectation_horaire.tmapmax))
                                                 {
                                                     bool test_periode = false;
@@ -3619,7 +3622,7 @@ namespace Muslic
 
                                                 }
                                                 //predecesseurs TC lignes différentes pivot MAP
-                                                else if ((projet.reseaux[projet.reseau_actif].links[predecesseur].ligne > 0 && projet.param_affectation_horaire.cveh[pred_type] > 0 && projet.reseaux[projet.reseau_actif].links[pivot].ligne < 0) && (projet.reseaux[projet.reseau_actif].links[predecesseur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout))
+                                                else if ((projet.reseaux[projet.reseau_actif].links[predecesseur].ligne > 0 && projet.reseaux[projet.reseau_actif].links[predecesseur].ligne!= projet.reseaux[projet.reseau_actif].links[pivot].ligne && projet.param_affectation_horaire.cveh[pred_type] > 0 && projet.reseaux[projet.reseau_actif].links[pivot].ligne < 0) && (projet.reseaux[projet.reseau_actif].links[predecesseur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout))
                                                 {
                                                     int ii, jj, num_service = -1, h3 = -1, delta, duree_periode;
                                                     float h1 = 1e38f, h2 = 1e38f, cout2 = 1e38f;
