@@ -3354,7 +3354,7 @@ namespace Muslic
                                                 
                                      //successeurs marche à pied pivot MAP
 
-                                                if (projet.reseaux[projet.reseau_actif].links[predecesseur].ligne < 0 && projet.reseaux[projet.reseau_actif].links[pivot].ligne < 0 && projet.param_affectation_horaire.cmap[pred_type] > 0 && (projet.reseaux[projet.reseau_actif].links[pivot].tmap + projet.reseaux[projet.reseau_actif].links[predecesseur].temps < projet.param_affectation_horaire.tmapmax))
+                                                if (projet.reseaux[projet.reseau_actif].links[predecesseur].ligne < 0 && projet.reseaux[projet.reseau_actif].links[pivot].ligne < 0 && projet.param_affectation_horaire.cmap[pred_type] > 0 && (projet.reseaux[projet.reseau_actif].links[pivot].tmap + projet.reseaux[projet.reseau_actif].links[predecesseur].temps < projet.param_affectation_horaire.tmapmax) && projet.reseaux[projet.reseau_actif].links[predecesseur].cout>projet.reseaux[projet.reseau_actif].links[pivot].cout)
                                                 {
                                                     bool test_periode = false;
                                                     int id_service = -1;
@@ -3416,7 +3416,7 @@ namespace Muslic
 
                                                 }
                                                 //predecesseurs marche à pied pivot TC
-                                                else if (projet.reseaux[projet.reseau_actif].links[predecesseur].ligne < 0 && projet.reseaux[projet.reseau_actif].links[pivot].ligne > 0 && projet.param_affectation_horaire.cmap[pred_type] > 0 && (projet.reseaux[projet.reseau_actif].links[pivot].tmap + projet.reseaux[projet.reseau_actif].links[predecesseur].temps < projet.param_affectation_horaire.tmapmax))
+                                                else if (projet.reseaux[projet.reseau_actif].links[predecesseur].ligne < 0 && projet.reseaux[projet.reseau_actif].links[pivot].ligne > 0 && projet.param_affectation_horaire.cmap[pred_type] > 0 && (projet.reseaux[projet.reseau_actif].links[pivot].tmap + projet.reseaux[projet.reseau_actif].links[predecesseur].temps < projet.param_affectation_horaire.tmapmax) && projet.reseaux[projet.reseau_actif].links[predecesseur].cout> projet.reseaux[projet.reseau_actif].links[pivot].cout)
                                                 {
                                                     int id_service = -1;
                                                     bool test_periode = false;
