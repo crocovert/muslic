@@ -3717,7 +3717,7 @@ namespace Muslic
 
                                             }
 
-                                            List<int> liste = new List<int>();
+                                            /*List<int> liste = new List<int>();
                                             liste.Add(1289714);
                                             liste.Add(233502);
                                             liste.Add(233499);
@@ -3740,7 +3740,7 @@ namespace Muslic
                                                     " " + projet.reseaux[projet.reseau_actif].links[predecesseur].tveh.ToString() +
                                                     " " + projet.reseaux[projet.reseau_actif].links[predecesseur].tatt.ToString() +'\n'; 
                                                 fich_log.Write(texto);
-                                            }
+                                            }*/
                                             
                                         }
                                     }
