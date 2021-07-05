@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Muslic.exe" size="125416">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Muslic.exe" size="125928">
       <assemblyIdentity name="Muslic" version="1.0.0.15" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LPzRKCP2xGk6xbaMEMTUg0G7hFozD6ZNKRXBMhyvqLA=</dsig:DigestValue>
+        <dsig:DigestValue>xxHn7/Jz80223ot9XaOV+dbyePc1XzjTCpjl/WceV+Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
