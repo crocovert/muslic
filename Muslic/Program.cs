@@ -3571,7 +3571,7 @@ namespace Muslic
 
 
                                                         }
-                                                        if ((projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf + projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 1440f + max_correspondance > projet.reseaux[projet.reseau_actif].links[pivot].h) && (projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf + projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 1440f + temps_correspondance <= projet.reseaux[projet.reseau_actif].links[pivot].h))
+                                                        if ((projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf + projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 1440f + max_correspondance >= projet.reseaux[projet.reseau_actif].links[pivot].h) && (projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf + projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 1440f + temps_correspondance <= projet.reseaux[projet.reseau_actif].links[pivot].h))
 
                                                         {
                                                             if (projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hd) * projet.param_affectation_horaire.cveh[pred_type] + (-projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 60f * 24f + projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[pred_type] + (temps_correspondance * projet.param_affectation_horaire.cboa[pivot_type]) + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type] < cout2 && delta < 1)
@@ -3633,7 +3633,7 @@ namespace Muslic
 
                                                         duree_periode = projet.reseaux[projet.reseau_actif].nom_calendrier[projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].regime].Length;
 
-                                                        if (projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf > projet.reseaux[projet.reseau_actif].links[pivot].h || projet.reseaux[projet.reseau_actif].nom_calendrier[projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].regime].Substring(jour, 1) == "N")
+                                                        if (projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf +temps_correspondance> projet.reseaux[projet.reseau_actif].links[pivot].h || projet.reseaux[projet.reseau_actif].nom_calendrier[projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].regime].Substring(jour, 1) == "N")
                                                         {
 
                                                             h1 = -1e38f;
@@ -3663,7 +3663,7 @@ namespace Muslic
 
 
                                                         }
-                                                        if ((projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf + projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 1440f + max_correspondance > projet.reseaux[projet.reseau_actif].links[pivot].h) && (projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf + projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 1440f + temps_correspondance <= projet.reseaux[projet.reseau_actif].links[pivot].h))
+                                                        if ((projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf + projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 1440f + max_correspondance >= projet.reseaux[projet.reseau_actif].links[pivot].h) && (projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf + projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 1440f + temps_correspondance <= projet.reseaux[projet.reseau_actif].links[pivot].h))
 
                                                         {
                                                             if (projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hd) * projet.param_affectation_horaire.cveh[pred_type] + (-projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[ii].delta * 60f * 24f + projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[pred_type] + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type] < cout2 && delta < 1)
