@@ -3725,12 +3725,16 @@ namespace Muslic
 
                                             if (liste.Contains(pivot) || liste.Contains(predecesseur))
                                                 {
-                                                String texto = "pivot:" + pivot.ToString() + " " + projet.reseaux[projet.reseau_actif].links[pivot].temps.ToString() +
+                                                String texto = "pivot:" + projet.reseaux[projet.reseau_actif].links[pivot].no.ToString() + " " +
+                                                    projet.reseaux[projet.reseau_actif].links[pivot].nd.ToString() + " " + 
+                                                    projet.reseaux[projet.reseau_actif].links[pivot].temps.ToString() +
                                                     " " + projet.reseaux[projet.reseau_actif].links[pivot].cout.ToString() +
-                                                    " " + projet.reseaux[projet.reseau_actif].links[pivot].tmap.ToString() +
-                                                    "pred:" + pivot.ToString() + " " + projet.reseaux[projet.reseau_actif].links[predecesseur].temps.ToString() +
+                                                    " " + projet.reseaux[projet.reseau_actif].links[pivot].tmap.ToString()+'\n' +
+                                                    "pred:" + projet.reseaux[projet.reseau_actif].links[predecesseur].no.ToString() + " " +
+                                                    projet.reseaux[projet.reseau_actif].links[predecesseur].nd.ToString() + 
+                                                    " " + projet.reseaux[projet.reseau_actif].links[predecesseur].temps.ToString() +
                                                     " " + projet.reseaux[projet.reseau_actif].links[predecesseur].cout.ToString() +
-                                                    " " + projet.reseaux[projet.reseau_actif].links[predecesseur].tmap.ToString();
+                                                    " " + projet.reseaux[projet.reseau_actif].links[predecesseur].tmap.ToString()+'\n';
                                                 fich_log.Write(texto);
                                             }
                                             
