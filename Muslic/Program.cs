@@ -2915,6 +2915,7 @@ namespace Muslic
                                     {
                                         pivot = gga_nq[id_bucket][0];
                                         gga_nq[id_bucket].RemoveAt(0);
+                                        projet.reseaux[projet.reseau_actif].links[pivot].touche = 1;
                                     }
                                     else
                                     {
