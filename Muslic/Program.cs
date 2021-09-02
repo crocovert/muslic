@@ -868,7 +868,7 @@ namespace Muslic
                         fich_sortie2.WriteLine("id;o;d;jour;heure;i;j;ligne;service;temps;heureo;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;boai;alij;texte;type;toll");
                         fich_result.WriteLine("i;j;ligne;volau;boai;alij;texte;type;toll");
                         fich_od.WriteLine("id;o;d;jour;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;texte;nbpop;toll");
-                        fich_noeuds.WriteLine("id;o;d;jour;numero;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;toll");
+                        fich_noeuds.WriteLine("id;o;d;jour;numero;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;toll;volau");
 
 
 
@@ -2581,6 +2581,7 @@ namespace Muslic
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].l.ToString("0.000");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].pole;
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].ttoll.ToString("0.000");
+                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].volau.ToString("0.000");
 
                                                     fich_noeuds.WriteLine(texte);
                                                 }
@@ -3999,6 +4000,7 @@ namespace Muslic
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].l.ToString("0.000");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].pole;
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].ttoll.ToString("0.000");
+                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].volau.ToString("0.000");
 
                                                     fich_noeuds.WriteLine(texte);
                                                 }
