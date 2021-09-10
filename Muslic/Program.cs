@@ -2581,7 +2581,7 @@ namespace Muslic
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].l.ToString("0.000");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].pole;
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].ttoll.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].volau.ToString("0.000");
+                                                    texte += ";" + od.ToString("0.000");
 
                                                     fich_noeuds.WriteLine(texte);
                                                 }
@@ -4000,7 +4000,7 @@ namespace Muslic
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].l.ToString("0.000");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].pole;
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].ttoll.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].volau.ToString("0.000");
+                                                    texte += ";" + od.ToString("0.000");
 
                                                     fich_noeuds.WriteLine(texte);
                                                 }
