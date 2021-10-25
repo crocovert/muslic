@@ -868,7 +868,15 @@ namespace Muslic
                         fich_sortie2.WriteLine("id;o;d;jour;heure;i;j;ligne;service;temps;heureo;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;boai;alij;texte;type;toll");
                         fich_result.WriteLine("i;j;ligne;volau;boai;alij;texte;type;toll");
                         fich_od.WriteLine("id;o;d;jour;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;texte;nbpop;toll");
-                        fich_noeuds.WriteLine("id;o;d;jour;numero;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;toll;volau");
+                        if (projet.param_affectation_horaire.sortie_temps == 3)
+                        {
+                            fich_noeuds.WriteLine("o;numero;temps;tatt1;volau");
+
+                        }
+                        else
+                        {
+                            fich_noeuds.WriteLine("id;o;d;jour;numero;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;toll;volau");
+                        }
 
 
 
@@ -2567,7 +2575,7 @@ namespace Muslic
                                                 {
                                                     if (projet.param_affectation_horaire.sortie_temps == 3)
                                                     {
-                                                        texte = libod + ";" + p + ";" + q;
+                                                        texte =  p ;
                                                         texte += ";" + n.i;
                                                         texte += ";" + (horaire - projet.reseaux[projet.reseau_actif].links[which_tmax].h).ToString("0.000");
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].tatt1.ToString("0.000");
@@ -3997,7 +4005,7 @@ namespace Muslic
                                                 {
                                                     if (projet.param_affectation_horaire.sortie_temps == 3)
                                                     {
-                                                        texte = libod + ";" + p + ";" + q;
+                                                        texte = q;
                                                         texte += ";" + n.i;
                                                         texte += ";" + (horaire - projet.reseaux[projet.reseau_actif].links[which_tmax].h).ToString("0.000");
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].tatt1.ToString("0.000");
