@@ -2577,7 +2577,7 @@ namespace Muslic
                                                     {
                                                         texte =  p ;
                                                         texte += ";" + n.i;
-                                                        texte += ";" + (horaire - projet.reseaux[projet.reseau_actif].links[which_tmax].h).ToString("0.000");
+                                                        texte += ";" + (-horaire + projet.reseaux[projet.reseau_actif].links[which_tmax].h).ToString("0.000");
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].tatt1.ToString("0.000");
                                                         texte += ";" + od.ToString("0.000");
 
