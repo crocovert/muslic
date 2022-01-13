@@ -2636,7 +2636,7 @@ namespace Muslic
 
                                     }
 
-                                    if (projet.param_affectation_horaire.sortie_temps > 0)
+                                    if (projet.param_affectation_horaire.sortie_temps > 0 && projet.param_affectation_horaire.sortie_temps < 3)
                                     {
                                         for (i = 0; i < projet.reseaux[projet.reseau_actif].links.Count; i++)
                                         {
@@ -4067,7 +4067,7 @@ namespace Muslic
                                     }
 
 
-                                    if (projet.param_affectation_horaire.sortie_temps > 0)
+                                    if (projet.param_affectation_horaire.sortie_temps > 0 && projet.param_affectation_horaire.sortie_temps<3)
                                     {
                                         for (i = 0; i < projet.reseaux[projet.reseau_actif].links.Count; i++)
                                         {

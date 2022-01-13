@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Muslic.exe" version="1.0.2.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
+  <asmv1:assemblyIdentity name="Muslic.exe" version="1.0.2.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Muslic" version="1.0.2.3" language="neutral" processorArchitecture="amd64" />
+    <assemblyIdentity name="Muslic" version="1.0.2.4" language="neutral" processorArchitecture="amd64" />
     <commandLine file="Muslic.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,13 +43,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Muslic.exe" size="124416">
-      <assemblyIdentity name="Muslic" version="1.0.2.3" language="neutral" processorArchitecture="amd64" />
+      <assemblyIdentity name="Muslic" version="1.0.2.4" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3D9UGJAS9thjZHnpbel92HPM8qHdhikyPER0p0P1+Lw=</dsig:DigestValue>
+        <dsig:DigestValue>IrcnbiFvnh6PPvBTI9So2VWLj7INXxCco9CpfeK2Blk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
