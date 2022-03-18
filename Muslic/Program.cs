@@ -225,10 +225,10 @@ namespace Muslic
                     Console.SetCursorPosition(cleft, ctop);
                     Console.Write("Network import:" + avancement + "%");
                     //            System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator = ".";
-                    System.IO.FileStream flux;
+                    System.IO.FileStream flux_reseau;
 
-                    flux = new System.IO.FileStream(nom_reseau, System.IO.FileMode.Open,FileAccess.Read,System.IO.FileShare.Read);
-                    System.IO.StreamReader fichier_reseau = new System.IO.StreamReader(flux, Encoding.UTF8);
+                    flux_reseau = new System.IO.FileStream(nom_reseau, System.IO.FileMode.Open,FileAccess.Read,System.IO.FileShare.Read);
+                    System.IO.StreamReader fichier_reseau = new System.IO.StreamReader(flux_reseau, Encoding.UTF8);
                     //   projet.reseaux[num_res].matrices.Add(new matrix());
                     System.IO.StreamWriter fich_log = new System.IO.StreamWriter(aff_hor.nom_sortie + "_log.txt", false, System.Text.Encoding.UTF8);
                     fich_log.WriteLine("Version: Muslic " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
@@ -269,11 +269,11 @@ namespace Muslic
 
                         chaine = fichier_reseau.ReadLine();
 
-                        if (avancement< (int)((100 * flux.Position) / flux.Length) - 4)
+                        if (avancement< (int)((100 * flux_reseau.Position) / flux_reseau.Length) - 4)
                         {
                             Console.SetCursorPosition(cleft, ctop);
-                            Console.Write( "Network import:" + ((100 * flux.Position) / flux.Length).ToString() + "%");
-                            avancement = (int)((100 * flux.Position) / flux.Length);
+                            Console.Write( "Network import:" + ((100 * flux_reseau.Position) / flux_reseau.Length).ToString() + "%");
+                            avancement = (int)((100 * flux_reseau.Position) / flux_reseau.Length);
                             
                         }
 
@@ -638,6 +638,7 @@ namespace Muslic
                         }
                     }
                     fichier_reseau.Close();
+                    flux_reseau.Close();
 
                     /*    for (int k = 0; k <= projet.reseaux[projet.reseau_actif].max_type; k++)
                         {
@@ -748,16 +749,16 @@ namespace Muslic
                         int ni, nj, nk;
                         int linei, linej, ntri, ntrj;
                         float tps_mvt;
-                        flux.Close();
-                        flux = new System.IO.FileStream(nom_penalites, System.IO.FileMode.Open,FileAccess.Read,FileShare.Read);
-                        System.IO.StreamReader fichier_penalites = new System.IO.StreamReader(flux, System.Text.Encoding.UTF8);
+                        System.IO.FileStream flux_penalites;
+                        flux_penalites = new System.IO.FileStream(nom_penalites, System.IO.FileMode.Open,FileAccess.Read,FileShare.Read);
+                        System.IO.StreamReader fichier_penalites = new System.IO.StreamReader(flux_penalites, System.Text.Encoding.UTF8);
                         while (fichier_penalites.EndOfStream == false)
                         {
-                            if (avancement < (int)((100 * flux.Position) / flux.Length) - 4)
+                            if (avancement < (int)((100 * flux_penalites.Position) / flux_penalites.Length) - 4)
                             {
                                 Console.SetCursorPosition(cleft, ctop);
-                                Console.Write("Penalties and transfers import:" + ((100 * flux.Position) / flux.Length).ToString() + "%");
-                                avancement = (int)((100 * flux.Position) / flux.Length);
+                                Console.Write("Penalties and transfers import:" + ((100 * flux_penalites.Position) / flux_penalites.Length).ToString() + "%");
+                                avancement = (int)((100 * flux_penalites.Position) / flux_penalites.Length);
                                 
                             }
 
@@ -824,7 +825,8 @@ namespace Muslic
                             }
 
                         }
-
+                        fichier_penalites.Close();
+                        flux_penalites.Close();
 
                     }
                     Console.SetCursorPosition(cleft, ctop);
@@ -909,10 +911,11 @@ namespace Muslic
                         string p, q, p1 = "", q1 = "", libod = "";
                         int sens = 1, sens1 = 0, jour1 = 0, numod = 0;
                         float horaire1 = 0;
-                        flux.Close();
 
-                        flux = new System.IO.FileStream(nom_matrice, System.IO.FileMode.Open,FileAccess.Read,FileShare.Read);
-                        System.IO.StreamReader fichier_matrice = new System.IO.StreamReader(flux, System.Text.Encoding.UTF8);
+                        System.IO.FileStream flux_matrice;
+
+                        flux_matrice = new System.IO.FileStream(nom_matrice, System.IO.FileMode.Open,FileAccess.Read, System.IO.FileShare.Read);
+                        System.IO.StreamReader fichier_matrice = new System.IO.StreamReader(flux_matrice, System.Text.Encoding.UTF8);
                         avancement = 0;
                         fich_log.WriteLine("Matrix:" + nom_matrice);
                         DateTime t1 = DateTime.Now;
@@ -924,11 +927,11 @@ namespace Muslic
                         lecture:
                             projet.param_affectation_horaire.nb_pop = 0;
                             chaine = fichier_matrice.ReadLine();
-                            if (avancement < (int)((100 * flux.Position) / flux.Length))
+                            if (avancement < (int)((100 * flux_matrice.Position) / flux_matrice.Length))
                             {
                                 Console.SetCursorPosition(cleft, ctop);
-                                Console.Write( "Shortest paths computing...:" + ((100 * flux.Position) / flux.Length).ToString() + "%");
-                                avancement = (int)((100 * flux.Position) / flux.Length);
+                                Console.Write( "Shortest paths computing...:" + ((100 * flux_matrice.Position) / flux_matrice.Length).ToString() + "%");
+                                avancement = (int)((100 * flux_matrice.Position) / flux_matrice.Length);
                                 
                             }
                             if (chaine.Trim().Length == 0) goto lec1;
@@ -4150,9 +4153,10 @@ namespace Muslic
                             }
 
                         }
+                        fichier_matrice.Close();
+                        flux_matrice.Close();
                         DateTime t2 = DateTime.Now;
                         fich_log.WriteLine("Computation end time: " + t2.ToString("dddd dd MMMM yyyy HH:mm:ss.fff"));
-
                         fich_log.WriteLine("Computation duration:" + t2.Subtract(t1).TotalSeconds + " sec");
                         fich_log.Close();
 
@@ -4260,8 +4264,8 @@ namespace Muslic
 
                         }
 
-                        flux.Close();
                         fichier_matrice.Close();
+                        flux_matrice.Close();
                     }
 
 
