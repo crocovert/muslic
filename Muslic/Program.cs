@@ -4264,8 +4264,7 @@ namespace Muslic
 
                         }
 
-                        fichier_matrice.Close();
-                        flux_matrice.Close();
+
                     }
 
 
