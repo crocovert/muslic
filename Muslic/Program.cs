@@ -31,29 +31,29 @@ namespace Muslic
         {
 
             System.IO.StreamWriter fich_ini = new System.IO.StreamWriter(nom_fichier_ini, false, System.Text.Encoding.UTF8);
-            String texte = parametres.algorithme +";Algorithm"+
-                "\n" + parametres.demitours + ";Prohibited U-turns"+
+            String texte = parametres.algorithme +";algorithm"+
+                "\n" + parametres.demitours + ";prohibited U-turns"+
                 "\n" + parametres.max_nb_buckets +";max buckets"+
                 "\n" + parametres.nb_jours +";number of days"+
                 "\n" + parametres.nom_matrice +";matrix file"+
                 "\n" + parametres.nom_penalites +";turns and transfers file"+
                 "\n" + parametres.nom_reseau +";network file"+
                 "\n" + parametres.nom_sortie +";generic output file"+
-                "\n" + parametres.param_dijkstra +";algorithm paramter+"+
+                "\n" + parametres.param_dijkstra +";algorithm parameter+"+
                 "\n" + parametres.pu +";algorithm power"+
                 "\n" + parametres.sortie_chemins +";output paths"+
                 "\n" + parametres.sortie_services +";output services"+
-                "\n" + parametres.sortie_temps +";output travael times"+
+                "\n" + parametres.sortie_temps +";output travel times"+
                 "\n" + parametres.sortie_turns +";output turns and transfers"+
                 "\n" + parametres.texte_cboa +";boarding weight"+
                 "\n" + parametres.texte_cmap +";individual mode weight"+
                 "\n" + parametres.texte_coef_tmap +";indivudal travel time factor"+
                 "\n" + parametres.texte_cveh +";in-vehicle time weight"+
-                "\n" + parametres.texte_cwait +";wait tim weight"+
+                "\n" + parametres.texte_cwait +";wait time weight"+
                 "\n" + parametres.texte_tboa +";min transfer time"+
 
                 "\n" + parametres.texte_tboa_max +";max transfer time"+
-                "\n" + parametres.tmapmax +";max individual travel time "+
+                "\n" + parametres.tmapmax +";max individual travel time"+
                 "\n" + parametres.texte_toll +";toll weight"+
                 "\n" + parametres.texte_filtre_sortie +";output filter types"+
                 "\n" + parametres.temps_max +";max travel cost"+
@@ -913,7 +913,7 @@ namespace Muslic
                         float horaire1 = 0;
 
                         System.IO.FileStream flux_matrice;
-
+                        
                         flux_matrice = new System.IO.FileStream(nom_matrice, System.IO.FileMode.Open,FileAccess.Read, System.IO.FileShare.Read);
                         System.IO.StreamReader fichier_matrice = new System.IO.StreamReader(flux_matrice, System.Text.Encoding.UTF8);
                         avancement = 0;
