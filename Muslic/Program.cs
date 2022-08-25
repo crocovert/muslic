@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Muslic
 {
@@ -21,7 +19,7 @@ namespace Muslic
                 string nom_penalites = null;
                 if (args.Count() > 4)
                 {
-                    nom_penalites = args[3];
+                    nom_penalites = args[4];
                 }
                 affectation_tc(nom_reseau, nom_matrice, nom_sortie, nom_parametres, nom_penalites);
             }
