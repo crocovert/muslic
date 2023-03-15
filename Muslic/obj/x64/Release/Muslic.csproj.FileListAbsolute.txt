@@ -15,4 +15,5 @@ C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.e
 C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.application
 C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.exe
 C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.pdb
-C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.csprojAssemblyReference.cache
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.csproj.AssemblyReference.cache
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Release\Muslic.csproj.SuggestedBindingRedirects.cache

@@ -2570,7 +2570,7 @@ namespace Muslic
                                                 }
 
                                             }
-                                            if (which_tmax > 0 && tmax <= projet.param_affectation_horaire.temps_max)
+                                            if (which_tmax >= 0 && tmax <= projet.param_affectation_horaire.temps_max)
                                             {
                                                 if (filtre.Contains(type_arc) || filtre.Count == 0)
                                                 {
@@ -4000,7 +4000,7 @@ namespace Muslic
                                                 }
 
                                             }
-                                            if (which_tmax > 0 && tmax <= projet.param_affectation_horaire.temps_max)
+                                            if (which_tmax >= 0 && tmax <= projet.param_affectation_horaire.temps_max)
                                             {
                                                 if (filtre.Contains(type_arc) || filtre.Count == 0)
                                                 {
