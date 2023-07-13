@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="Muslic.exe" version="1.0.2.9" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Muslic" version="1.0.2.8" language="neutral" processorArchitecture="amd64" />
+    <assemblyIdentity name="Muslic" version="1.0.2.9" language="neutral" processorArchitecture="amd64" />
     <commandLine file="Muslic.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Muslic.exe" size="124928">
-      <assemblyIdentity name="Muslic" version="1.0.2.8" language="neutral" processorArchitecture="amd64" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Muslic.exe" size="125440">
+      <assemblyIdentity name="Muslic" version="1.0.2.9" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hmDrJEMOUP7Aq4ZGByex0PnSoM7tWwZjlebsW5yEAE4=</dsig:DigestValue>
+        <dsig:DigestValue>8tVpR6iakLVbLWyb3PUC5Rpgap2r5CRER8pWRE0b2QE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
