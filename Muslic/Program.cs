@@ -864,17 +864,18 @@ namespace Muslic
                         System.IO.StreamWriter fich_detour = new System.IO.StreamWriter(projet.param_affectation_horaire.nom_sortie + "_detour.txt", false, Encoding.UTF8);
                         System.IO.StreamWriter fich_isoles = new System.IO.StreamWriter(projet.param_affectation_horaire.nom_sortie + "_isoles.txt", false, Encoding.UTF8);
                         Ecrit_parametres(projet.param_affectation_horaire,projet.param_affectation_horaire.nom_sortie + "_param.txt");
-                        fich_sortie.WriteLine("id;o;ij;ligne;numtrc;jour;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;precedent;type;toll;ti");
                         fich_sortie2.WriteLine("id;o;d;jour;heure;i;j;ligne;service;temps;heureo;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;boai;alij;texte;type;toll");
                         fich_result.WriteLine("i;j;ligne;volau;boai;alij;texte;type;toll");
                         fich_od.WriteLine("id;o;d;jour;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;texte;nbpop;toll");
                         if (projet.param_affectation_horaire.sortie_temps == 3)
                         {
+                            fich_sortie.WriteLine("o;ij;ligne;temps;tatt1;volau");
                             fich_noeuds.WriteLine("o;numero;temps;tatt1;volau");
 
                         }
                         else
                         {
+                            fich_sortie.WriteLine("id;o;ij;ligne;numtrc;jour;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;precedent;type;toll;ti");
                             fich_noeuds.WriteLine("id;o;d;jour;numero;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;toll;volau");
                         }
 
@@ -2637,7 +2638,7 @@ namespace Muslic
 
                                     }
 
-                                    if (projet.param_affectation_horaire.sortie_temps > 0 && projet.param_affectation_horaire.sortie_temps < 3)
+                                    if (projet.param_affectation_horaire.sortie_temps > 0 && projet.param_affectation_horaire.sortie_temps < 4)
                                     {
                                         for (i = 0; i < projet.reseaux[projet.reseau_actif].links.Count; i++)
                                         {
@@ -2648,53 +2649,65 @@ namespace Muslic
                                             {
                                                 if (projet.reseaux[projet.reseau_actif].links[arrivee].touche != 0 && (projet.reseaux[projet.reseau_actif].links[arrivee].ligne < 0 || projet.param_affectation_horaire.sortie_temps == 2))
                                                 {
-        
-                                                    texte = libod + ";" + p;
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].no].i;
-                                                    texte += "-" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].nd].i;
-                                                    texte += ";" + (projet.reseaux[projet.reseau_actif].links[arrivee].ligne).ToString("0");
-                                                    texte += ";" + i.ToString("0");
-                                                    texte += ";" + jour.ToString("0");
-                                                    texte += ";" + horaire.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].h.ToString("0.000");
-                                                    texte += ";" + (-horaire + projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tveh.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tmap.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tatt.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tcor.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].ncorr.ToString("0");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tatt1.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].cout.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].l.ToString("0.000");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].pole;
-                                                    texte += ";" + od.ToString("0.00");
-                                                    // texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].texte;
-                                                    /*texte += ";" + projet.param_affectation_horaire.texte_cveh;
-                                                    texte += ";" + projet.param_affectation_horaire.texte_cwait;
-                                                    texte += ";" + projet.param_affectation_horaire.texte_cmap;
-                                                    texte += ";" + projet.param_affectation_horaire.texte_cboa;
-                                                    texte += ";" + projet.param_affectation_horaire.texte_coef_tmap;
-                                                    texte += ";" + projet.param_affectation_horaire.texte_tboa;
-                                                    texte += ";" + projet.param_affectation_horaire.nb_jours;*/
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].pivot.ToString("0");
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].type;
-                                                    texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].ttoll.ToString("0.000");
-                                                    link arc = new link();
-                                                    arc = projet.reseaux[projet.reseau_actif].links[arrivee];
-                                                    float ti;
-                                                    if (arc.ligne < 0)
+                                                    if (projet.param_affectation_horaire.sortie_noeuds == false && projet.param_affectation_horaire.sortie_temps == 3)
                                                     {
-                                                        ti = -horaire + (arc.h - arc.temps * projet.param_affectation_horaire.coef_tmap[arc.type]);
+                                                        texte = p;
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].no].i;
+                                                        texte += "-" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].nd].i;
+                                                        texte += ";" + (-horaire + projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tatt1.ToString("0.000");
+                                                        texte += ";" + od.ToString("0.000");
 
-                                                        //ti = -horaire + arc.h - arc.temps;
+
                                                     }
-                                                    else
+                                                    else if ( projet.param_affectation_horaire.sortie_temps < 3)
                                                     {
-                                                        ti = -horaire + arc.h - (arc.services[arc.service].hf - arc.services[arc.service].hd);
+                                                        texte = libod + ";" + p;
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].no].i;
+                                                        texte += "-" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].nd].i;
+                                                        texte += ";" + (projet.reseaux[projet.reseau_actif].links[arrivee].ligne).ToString("0");
+                                                        texte += ";" + i.ToString("0");
+                                                        texte += ";" + jour.ToString("0");
+                                                        texte += ";" + horaire.ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].h.ToString("0.000");
+                                                        texte += ";" + (-horaire + projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tveh.ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tmap.ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tatt.ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tcor.ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].ncorr.ToString("0");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tatt1.ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].cout.ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].l.ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].pole;
+                                                        texte += ";" + od.ToString("0.00");
+                                                        // texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].texte;
+                                                        /*texte += ";" + projet.param_affectation_horaire.texte_cveh;
+                                                        texte += ";" + projet.param_affectation_horaire.texte_cwait;
+                                                        texte += ";" + projet.param_affectation_horaire.texte_cmap;
+                                                        texte += ";" + projet.param_affectation_horaire.texte_cboa;
+                                                        texte += ";" + projet.param_affectation_horaire.texte_coef_tmap;
+                                                        texte += ";" + projet.param_affectation_horaire.texte_tboa;
+                                                        texte += ";" + projet.param_affectation_horaire.nb_jours;*/
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].pivot.ToString("0");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].type;
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].ttoll.ToString("0.000");
+                                                        link arc = new link();
+                                                        arc = projet.reseaux[projet.reseau_actif].links[arrivee];
+                                                        float ti;
+                                                        if (arc.ligne < 0)
+                                                        {
+                                                            ti = -horaire + (arc.h - arc.temps * projet.param_affectation_horaire.coef_tmap[arc.type]);
+
+                                                            //ti = -horaire + arc.h - arc.temps;
+                                                        }
+                                                        else
+                                                        {
+                                                            ti = -horaire + arc.h - (arc.services[arc.service].hf - arc.services[arc.service].hd);
+                                                        }
+                                                        texte += ";" + ti.ToString("0.000");
+
                                                     }
-                                                    texte += ";" + ti.ToString("0.000");
-
-
                                                     //                                itineraire = "MAP," + itineraire;
                                                     //texte += ";" + itineraire;
                                                     if ((projet.reseaux[projet.reseau_actif].links[arrivee].cout) <= projet.param_affectation_horaire.temps_max)
@@ -4068,7 +4081,7 @@ namespace Muslic
                                     }
 
 
-                                    if (projet.param_affectation_horaire.sortie_temps > 0 && projet.param_affectation_horaire.sortie_temps<3)
+                                    if (projet.param_affectation_horaire.sortie_temps > 0 && projet.param_affectation_horaire.sortie_temps<4)
                                     {
                                         for (i = 0; i < projet.reseaux[projet.reseau_actif].links.Count; i++)
                                         {
@@ -4079,6 +4092,20 @@ namespace Muslic
 
                                                 if (projet.reseaux[projet.reseau_actif].links[arrivee].touche != 0 && (projet.reseaux[projet.reseau_actif].links[arrivee].ligne < 0 || projet.param_affectation_horaire.sortie_temps == 2))
                                                 {
+                                                    if (projet.param_affectation_horaire.sortie_noeuds == false && projet.param_affectation_horaire.sortie_temps == 3)
+                                                    {
+                                                        texte = q;
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].no].i;
+                                                        texte += "-" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].nd].i;
+                                                        texte += ";" + (horaire - projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tatt1.ToString("0.000");
+                                                        texte += ";" + od.ToString("0.000");
+
+
+                                                    }
+                                                    else if ( projet.param_affectation_horaire.sortie_temps < 3)
+                                                    { 
+
                                                     texte = libod + ";" + q;
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].no].i;
                                                     texte += "-" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[arrivee].nd].i;
@@ -4101,7 +4128,7 @@ namespace Muslic
                                                         ti = horaire - (arc.h + (arc.services[arc.service].hf - arc.services[arc.service].hd));
                                                     }
                                                     texte += ";" + ti.ToString("0.000");
-                                                    
+
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tveh.ToString("0.000");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tmap.ToString("0.000");
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].tatt.ToString("0.000");
@@ -4124,6 +4151,8 @@ namespace Muslic
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].type;
                                                     texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].ttoll.ToString("0.000");
                                                     texte += ";" + (horaire - projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
+                                                }
+                                                
                                                     //                                itineraire = "MAP," + itineraire;
                                                     if (projet.reseaux[projet.reseau_actif].links[arrivee].cout <= projet.param_affectation_horaire.temps_max)
                                                     {
