@@ -2807,7 +2807,7 @@ namespace Muslic
                                     projet.reseaux[projet.reseau_actif].links[i].pivot = -1;
                                     projet.reseaux[projet.reseau_actif].links[i].turn_pivot = -1;
                                     projet.reseaux[projet.reseau_actif].links[i].pole = "-1";
-                                    projet.reseaux[projet.reseau_actif].links[i].poleV2 = "";
+                                    projet.reseaux[projet.reseau_actif].links[i].poleV2 = " ";
                                     projet.reseaux[projet.reseau_actif].links[i].service = -1;
                                     projet.reseaux[projet.reseau_actif].links[i].is_queue = false;
 
