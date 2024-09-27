@@ -864,7 +864,7 @@ namespace Muslic
                         System.IO.StreamWriter fich_detour = new System.IO.StreamWriter(projet.param_affectation_horaire.nom_sortie + "_detour.txt", false, Encoding.UTF8);
                         System.IO.StreamWriter fich_isoles = new System.IO.StreamWriter(projet.param_affectation_horaire.nom_sortie + "_isoles.txt", false, Encoding.UTF8);
                         Ecrit_parametres(projet.param_affectation_horaire,projet.param_affectation_horaire.nom_sortie + "_param.txt");
-                        fich_sortie2.WriteLine("id;o;d;jour;heure;i;j;ligne;service;temps;heureo;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;boai;alij;texte;type;toll");
+                        fich_sortie2.WriteLine("id;o;d;jour;heure;i;j;ij;ligne;service;temps;heureo;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;boai;alij;texte;type;toll");
                         fich_result.WriteLine("i;j;ligne;volau;boai;alij;texte;type;toll");
                         fich_od.WriteLine("id;o;d;jour;heureo;heured;temps;tveh;tmap;tatt;tcorr;ncorr;tatt1;cout;longueur;pole;volau;texte;nbpop;toll");
                         if (projet.param_affectation_horaire.sortie_temps == 3)
@@ -1622,6 +1622,7 @@ namespace Muslic
                                 for (i = 0; i < projet.reseaux[projet.reseau_actif].links.Count; i++)
                                 {
                                     projet.reseaux[projet.reseau_actif].links[i].pole = "-1";
+                                    projet.reseaux[projet.reseau_actif].links[i].poleV2 = "";
                                     projet.reseaux[projet.reseau_actif].links[i].touche = 0;
                                     projet.reseaux[projet.reseau_actif].links[i].cout = 0;
                                     projet.reseaux[projet.reseau_actif].links[i].tatt = 0;
@@ -1798,6 +1799,7 @@ namespace Muslic
                                                 projet.reseaux[projet.reseau_actif].links[successeur].pivot = -1;
                                                 projet.reseaux[projet.reseau_actif].links[successeur].turn_pivot = -1;
                                                 projet.reseaux[projet.reseau_actif].links[successeur].pole = projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+                                                projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[successeur].pole;
                                             }
                                         }
 
@@ -1959,6 +1961,15 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[successeur].turn_pivot = j;
 
                                                         projet.reseaux[projet.reseau_actif].links[successeur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
+                                                        if (projet.reseaux[projet.reseau_actif].links[pivot].ligne > 0)
+                                                        {
+                                                            projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2 + ";" +projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+                                                            
+                                                        }
+                                                        else
+                                                        {
+                                                            projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
+                                                        }
                                                     }
                                                 }
                                                 //successeur TC même ligne
@@ -2005,6 +2016,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[successeur].pivot = pivot;
                                                         projet.reseaux[projet.reseau_actif].links[successeur].turn_pivot = j;
                                                         projet.reseaux[projet.reseau_actif].links[successeur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
+                                                        projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
                                                     }
                                                 }
 
@@ -2101,6 +2113,9 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[successeur].pivot = pivot;
                                                         projet.reseaux[projet.reseau_actif].links[successeur].turn_pivot = j;
 
+
+                                                         projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2 + ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+
                                                         if (projet.reseaux[projet.reseau_actif].links[pivot].pole == depart)
                                                         {
                                                             projet.reseaux[projet.reseau_actif].links[successeur].pole = projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
@@ -2173,6 +2188,18 @@ namespace Muslic
                                                             projet.reseaux[projet.reseau_actif].links[successeur].turn_pivot = j;
                                                             projet.reseaux[projet.reseau_actif].links[successeur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
 
+
+                                                            if (projet.reseaux[projet.reseau_actif].links[pivot].ligne > 0)
+                                                            {
+                                                                projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2 + ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+
+                                                            }
+                                                            else
+                                                            {
+                                                                projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
+                                                            }
+
+
                                                             projet.reseaux[projet.reseau_actif].links[successeur].service = id_service;                                                        //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), ;
                                                             bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
                                                             gga_nq[bucket].Add(successeur);
@@ -2226,6 +2253,7 @@ namespace Muslic
 
                                                                 projet.reseaux[projet.reseau_actif].links[successeur].turn_pivot = j;
                                                                 projet.reseaux[projet.reseau_actif].links[successeur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
+                                                                projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
                                                                 //bucket = Convert.ToInt32(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
                                                                 bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
                                                                 gga_nq[bucket].Add(successeur);
@@ -2324,7 +2352,7 @@ namespace Muslic
                                                             {
                                                                 projet.reseaux[projet.reseau_actif].links[successeur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
                                                             }
-
+                                                            projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2 + ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
                                                             bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
                                                             gga_nq[bucket].Add(successeur);
                                                             projet.param_affectation_horaire.nb_pop++;
@@ -2458,6 +2486,7 @@ namespace Muslic
 
                                         texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[pivot].no].i;
                                         texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[pivot].nd].i;
+                                        texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[pivot].no].i + "-" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[pivot].nd].i;
                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[pivot].ligne.ToString("0");
                                         if (projet.reseaux[projet.reseau_actif].links[pivot].service >= 0)
                                         {
@@ -2692,6 +2721,7 @@ namespace Muslic
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].pivot.ToString("0");
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].type;
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].ttoll.ToString("0.000");
+                                                            texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].poleV2; 
                                                         link arc = new link();
                                                         arc = projet.reseaux[projet.reseau_actif].links[arrivee];
                                                         float ti;
@@ -2776,6 +2806,7 @@ namespace Muslic
                                     projet.reseaux[projet.reseau_actif].links[i].pivot = -1;
                                     projet.reseaux[projet.reseau_actif].links[i].turn_pivot = -1;
                                     projet.reseaux[projet.reseau_actif].links[i].pole = "-1";
+                                    projet.reseaux[projet.reseau_actif].links[i].poleV2 = "";
                                     projet.reseaux[projet.reseau_actif].links[i].service = -1;
                                     projet.reseaux[projet.reseau_actif].links[i].is_queue = false;
 
@@ -2840,6 +2871,7 @@ namespace Muslic
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].turn_pivot = -1;
 
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].pole = depart;
+                                                projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = "";
                                                 //                                    bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
                                                 bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
                                                 while (bucket >= gga_nq.Count)
@@ -2927,6 +2959,7 @@ namespace Muslic
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].pivot = -1;
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].turn_pivot = -1;
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].pole = projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i;
+                                                projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i;
                                             }
                                         }
 
@@ -3091,6 +3124,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pivot = pivot;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].turn_pivot = j;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
+                                                        projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
                                                     }
                                                 }
                                                 // predecesseur marche à pied pivot TC
@@ -3149,6 +3183,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pivot = pivot;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].turn_pivot = j;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pole = projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i;
+                                                        projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = ";"+ projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i+ projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
                                                     }
                                                 }
                                                 //predecesseurs TC même ligne
@@ -3194,6 +3229,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pivot = pivot;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].turn_pivot = j;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
+                                                        projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
                                                     }
                                                 }
 
@@ -3286,6 +3322,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pivot = pivot;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].turn_pivot = j;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pole = projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i;
+                                                        projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i + projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
                                                     }
                                                 }
 
@@ -3377,6 +3414,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pivot = pivot;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].turn_pivot = j;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
+                                                        projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i + projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
                                                     }
                                                 }
 
@@ -3902,6 +3940,8 @@ namespace Muslic
                                         texte = libod + ";" + p + ";" + q + ";" + jour.ToString("0") + ";" + horaire.ToString("0.000");
                                         texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[pivot].no].i;
                                         texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[pivot].nd].i;
+                                        texte += ";" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[pivot].no].i+"-"+ projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[pivot].nd].i;
+
                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[pivot].ligne.ToString("0");
                                         if (projet.reseaux[projet.reseau_actif].links[pivot].service >= 0)
                                         {
@@ -4417,7 +4457,7 @@ namespace Muslic
             //public List<turn> arcj = new List<turn>();
             //public List<float> ul = new List<float>();
             public List<Service> services = new List<Service>();
-            public string texte, modes, pole, type = "0";
+            public string texte, modes, pole, type = "0",poleV2;
             /*public float fd(float volau, float len, float precha, float cap, float v0, float a, float b, float n)
             {
                 float vc, t0, delay;
@@ -4515,7 +4555,7 @@ namespace Muslic
             public string i = "";
             public float x = 0, y = 0, tempst = 1e38f, tmap = 0, tatt, temps, cout, ncor, ttoll;
             public string name = "";
-            public string pole;
+            public string pole,poleV2;
             public List<int> in_nodes = new List<int>();
             public List<int> out_nodes = new List<int>();
             public void addincoming(int i)
