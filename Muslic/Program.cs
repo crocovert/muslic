@@ -1707,6 +1707,7 @@ namespace Muslic
                                                 projet.reseaux[projet.reseau_actif].links[successeur].pivot = -1;
                                                 projet.reseaux[projet.reseau_actif].links[successeur].turn_pivot = -1;
                                                 projet.reseaux[projet.reseau_actif].links[successeur].pole = depart;
+                                                projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = " ";
                                                 //bucket = Convert.ToInt32(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra)), projet.param_affectation_horaire.max_nb_buckets);
                                                 bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
 
@@ -2872,7 +2873,7 @@ namespace Muslic
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].turn_pivot = -1;
 
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].pole = depart;
-                                                projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = "";
+                                                projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = " ";
                                                 //                                    bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
                                                 bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
                                                 while (bucket >= gga_nq.Count)
