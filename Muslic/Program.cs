@@ -1622,7 +1622,7 @@ namespace Muslic
                                 for (i = 0; i < projet.reseaux[projet.reseau_actif].links.Count; i++)
                                 {
                                     projet.reseaux[projet.reseau_actif].links[i].pole = "-1";
-                                    projet.reseaux[projet.reseau_actif].links[i].poleV2 = "";
+                                    projet.reseaux[projet.reseau_actif].links[i].poleV2 = " ";
                                     projet.reseaux[projet.reseau_actif].links[i].touche = 0;
                                     projet.reseaux[projet.reseau_actif].links[i].cout = 0;
                                     projet.reseaux[projet.reseau_actif].links[i].tatt = 0;
