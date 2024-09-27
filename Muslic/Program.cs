@@ -4194,6 +4194,7 @@ namespace Muslic
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].type;
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].ttoll.ToString("0.000");
                                                         texte += ";" + (horaire - projet.reseaux[projet.reseau_actif].links[arrivee].h).ToString("0.000");
+                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[arrivee].poleV2; 
                                                     }
                                                     
                                                 
