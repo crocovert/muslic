@@ -2114,8 +2114,14 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[successeur].pivot = pivot;
                                                         projet.reseaux[projet.reseau_actif].links[successeur].turn_pivot = j;
 
-
-                                                         projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2 + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+                                                        if (projet.reseaux[projet.reseau_actif].links[pivot].ligne > 0)
+                                                        {
+                                                            projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2 + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+                                                        }
+                                                        else
+                                                        {
+                                                            projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2+ "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+                                                        }
 
                                                         if (projet.reseaux[projet.reseau_actif].links[pivot].pole == depart)
                                                         {
@@ -2353,7 +2359,18 @@ namespace Muslic
                                                             {
                                                                 projet.reseaux[projet.reseau_actif].links[successeur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
                                                             }
-                                                            projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2 + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+                                                            if (projet.reseaux[projet.reseau_actif].links[pivot].ligne > 0)
+                                                            {
+
+                                                                projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2 + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+                                                            }
+                                                            else
+                                                            {
+
+                                                                projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2  + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[successeur].no].i;
+                                                            }
+
+
                                                             bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
                                                             gga_nq[bucket].Add(successeur);
                                                             projet.param_affectation_horaire.nb_pop++;
@@ -3482,7 +3499,7 @@ namespace Muslic
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].pivot = pivot;
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].turn_pivot = j;
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
-                                                            projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i + projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
+                                                            projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 =  projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
 
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].service = id_service;
 
