@@ -135,7 +135,7 @@ namespace Muslic
                 //Console.WriteLine(aff_hor.texte_tboa_max);
                 aff_hor.sortie_noeuds = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.texte_tboa_max);
-                aff_hor.sortie_isoles = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
+                // aff_hor.sortie_isoles = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.texte_tboa_max);
 
                 if (fich_ini.EndOfStream == false)
