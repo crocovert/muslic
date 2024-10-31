@@ -29,6 +29,10 @@ namespace Muslic
         {
 
             System.IO.StreamWriter fich_ini = new System.IO.StreamWriter(nom_fichier_ini, false, System.Text.Encoding.UTF8);
+            if (parametres.sortie_stops==true )
+                {
+                parametres.sortie_temps += 10;
+                    };
             String texte = parametres.algorithme +";algorithm"+
                 "\n" + parametres.demitours + ";prohibited U-turns"+
                 "\n" + parametres.max_nb_buckets +";max buckets"+
@@ -103,6 +107,15 @@ namespace Muslic
                 aff_hor.sortie_services = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.sortie_services);
                 aff_hor.sortie_temps = int.Parse(fich_ini.ReadLine().Split(';')[0]);
+                if (aff_hor.sortie_temps>=10)
+                {
+                    aff_hor.sortie_stops = true;
+                    aff_hor.sortie_temps +=-10;
+                }
+                else
+                {
+                    aff_hor.sortie_stops = false;
+                }
                 //Console.WriteLine(aff_hor.sortie_temps);
                 aff_hor.sortie_turns = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.sortie_turns);
@@ -119,6 +132,10 @@ namespace Muslic
                 aff_hor.texte_tboa = fich_ini.ReadLine().Split(';')[0];
                 //Console.WriteLine(aff_hor.texte_tboa);
                 aff_hor.texte_tboa_max = fich_ini.ReadLine().Split(';')[0];
+                //Console.WriteLine(aff_hor.texte_tboa_max);
+                aff_hor.sortie_noeuds = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
+                //Console.WriteLine(aff_hor.texte_tboa_max);
+                aff_hor.sortie_isoles = bool.Parse(fich_ini.ReadLine().Split(';')[0]);
                 //Console.WriteLine(aff_hor.texte_tboa_max);
 
                 if (fich_ini.EndOfStream == false)
@@ -1568,6 +1585,15 @@ namespace Muslic
                             {
                                 projet.param_affectation_horaire.sortie_chemins = aff_hor.sortie_chemins;
                                 projet.param_affectation_horaire.sortie_temps = aff_hor.sortie_temps;
+                                if (aff_hor.sortie_temps>=10)
+                                {
+                                    aff_hor.sortie_stops = true;
+                                    aff_hor.sortie_temps += -10;
+                                }
+                                else
+                                {
+                                    aff_hor.sortie_stops = false;
+                                }
                                 projet.param_affectation_horaire.algorithme = aff_hor.algorithme;
                                 projet.param_affectation_horaire.param_dijkstra = aff_hor.param_dijkstra;
                                 projet.param_affectation_horaire.max_nb_buckets = aff_hor.max_nb_buckets;
@@ -2650,7 +2676,14 @@ namespace Muslic
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].pole;
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].ttoll.ToString("0.000");
                                                         texte += ";" + od.ToString("0.000");
-                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].poleV2;
+                                                        if (projet.param_affectation_horaire.sortie_stops == true)
+                                                        {
+                                                            texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].poleV2;
+                                                        }
+                                                        else
+                                                        {
+                                                            texte += ";";
+                                                        }
                                                     }
                                                     fich_noeuds.WriteLine(texte);
                                                 }
@@ -3076,7 +3109,7 @@ namespace Muslic
                                         {
                                             if (penalite > 0)
                                             {
-                                                temps_correspondance = penalite;
+                                                temps_correspondance = penalite + projet.param_affectation_horaire.tboa[pivot_type]; 
                                                 max_correspondance = projet.param_affectation_horaire.tboa_max[pivot_type];
 
                                             }
@@ -3800,8 +3833,8 @@ namespace Muslic
                                                             }
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].tatt = projet.reseaux[projet.reseau_actif].links[pivot].tatt - projet.reseaux[projet.reseau_actif].links[predecesseur].services[projet.reseaux[projet.reseau_actif].links[predecesseur].service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[projet.reseaux[projet.reseau_actif].links[predecesseur].service].delta * 1440f + projet.reseaux[projet.reseau_actif].links[pivot].h;
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].tveh = projet.reseaux[projet.reseau_actif].links[pivot].tveh + projet.reseaux[projet.reseau_actif].links[predecesseur].services[projet.reseaux[projet.reseau_actif].links[predecesseur].service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[projet.reseaux[projet.reseau_actif].links[predecesseur].service].hd;
-                                                            projet.reseaux[projet.reseau_actif].links[predecesseur].tcor = projet.reseaux[projet.reseau_actif].links[pivot].tcor+temps_correspondance;
-                                                            projet.reseaux[projet.reseau_actif].links[predecesseur].ncorr = projet.reseaux[projet.reseau_actif].links[pivot].ncorr + 1;
+                                                            projet.reseaux[projet.reseau_actif].links[predecesseur].tcor = projet.reseaux[projet.reseau_actif].links[pivot].tcor;
+                                                            projet.reseaux[projet.reseau_actif].links[predecesseur].ncorr = projet.reseaux[projet.reseau_actif].links[pivot].ncorr ;
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].tmap = projet.reseaux[projet.reseau_actif].links[pivot].tmap;
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].ttoll = projet.reseaux[projet.reseau_actif].links[pivot].ttoll + projet.reseaux[projet.reseau_actif].links[predecesseur].toll;
 
@@ -4117,7 +4150,14 @@ namespace Muslic
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].pole;
                                                         texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].ttoll.ToString("0.000");
                                                         texte += ";" + od.ToString("0.000");
-                                                        texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].poleV2;
+                                                        if (projet.param_affectation_horaire.sortie_stops == true)
+                                                        {
+                                                            texte += ";" + projet.reseaux[projet.reseau_actif].links[which_tmax].poleV2;
+                                                        }
+                                                        else
+                                                        {
+                                                            texte += ";";
+                                                        }
                                                     }
                                                     fich_noeuds.WriteLine(texte);
                                                 }
@@ -4549,7 +4589,7 @@ namespace Muslic
             public Dictionary<String, float> cveh = new Dictionary<String, float>(1);
             public Dictionary<String, float> ctoll = new Dictionary<String, float>(1);
             public float param_dijkstra, pu;
-            public bool sortie_chemins, demitours = true, sortie_services = false, sortie_turns = false, test_OK = false, sortie_noeuds = true, sortie_isoles = false;
+            public bool sortie_chemins, demitours = true, sortie_services = false, sortie_turns = false, test_OK = false, sortie_noeuds = true, sortie_isoles = false, sortie_stops=false;
             public int sortie_temps;
             public int algorithme = 1;
             public float max_nb_buckets = 10000;
