@@ -1844,7 +1844,7 @@ namespace Muslic
                                     while (gga_nq[id_bucket].Count == 0)
                                     {
                                         id_bucket++;
-                                        if (id_bucket == gga_nq.Count || id_bucket== bucket_cout_max)
+                                        if (id_bucket == gga_nq.Count+1 || id_bucket== bucket_cout_max+1)
                                         {
                                             goto fin_gga;
                                         }
@@ -3029,7 +3029,7 @@ namespace Muslic
                                     while (gga_nq[id_bucket].Count == 0)
                                     {
                                         id_bucket++;
-                                        if (id_bucket == gga_nq.Count || bucket_cout_max == id_bucket)
+                                        if (id_bucket == gga_nq.Count+1 || bucket_cout_max == id_bucket+1)
                                         {
                                             goto fin_gga2;
                                         }
