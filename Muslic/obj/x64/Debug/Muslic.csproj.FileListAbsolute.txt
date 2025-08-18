@@ -1,0 +1,12 @@
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Debug\Muslic.exe.config
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Debug\Muslic.exe.manifest
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Debug\Muslic.application
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Debug\Muslic.exe
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\bin\x64\Debug\Muslic.pdb
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Debug\Muslic.csproj.AssemblyReference.cache
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Debug\Muslic.csproj.CoreCompileInputs.cache
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Debug\Muslic.exe.manifest
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Debug\Muslic.application
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Debug\Muslic.exe
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Debug\Muslic.pdb
+C:\Users\patrick.palmier\Documents\GitHub\muslic\Muslic\obj\x64\Debug\Muslic.exe.config

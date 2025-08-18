@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Muslic.exe" version="1.0.5.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
+<<<<<<< HEAD
+  <asmv1:assemblyIdentity name="Muslic.exe" version="1.0.5.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Muslic" version="1.0.5.1" language="neutral" processorArchitecture="amd64" />
+=======
+  <asmv1:assemblyIdentity name="Muslic.exe" version="1.0.4.16" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Muslic" version="1.0.4.16" language="neutral" processorArchitecture="amd64" />
+>>>>>>> parent of dc34348 (1.0.5.0)
     <commandLine file="Muslic.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,13 +50,21 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Muslic.exe" size="129536">
+<<<<<<< HEAD
       <assemblyIdentity name="Muslic" version="1.0.5.1" language="neutral" processorArchitecture="amd64" />
+=======
+      <assemblyIdentity name="Muslic" version="1.0.4.16" language="neutral" processorArchitecture="amd64" />
+>>>>>>> parent of dc34348 (1.0.5.0)
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/p3piRMwyAQRNx/ZCubHaJTDoMh4jNZc0VpP97G6y6c=</dsig:DigestValue>
+<<<<<<< HEAD
+        <dsig:DigestValue>4u9ZK4v7glLtBvreTXUkvl/jesjIaffbaUHfCXuqNiI=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>S9qWnxf4B/4/RSjXoY+MF/sq1+jHUddEsTlNeCdevqs=</dsig:DigestValue>
+>>>>>>> parent of dc34348 (1.0.5.0)
       </hash>
     </dependentAssembly>
   </dependency>

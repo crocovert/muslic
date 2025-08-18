@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Muslic||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|c:\\users\\patrick.palmier\\documents\\github\\muslic\\muslic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|solutionrelative:muslic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\muslic\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|solutionrelative:muslic\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|c:\\users\\patrick.palmier\\documents\\github\\muslic\\muslic\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|cc4014f5-b18d-439c-9352-f99d984cca85"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\Muslic\\Program.cs",
+              "RelativeDocumentMoniker": "Muslic\\Program.cs",
+              "ToolTip": "C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\Muslic\\Program.cs",
+              "RelativeToolTip": "Muslic\\Program.cs",
+              "ViewState": "AgIAALgLAAAAAAAAAAAWwNgLAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-15T13:05:51.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Muslic",
+              "DocumentMoniker": "C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\Muslic\\Muslic.csproj",
+              "RelativeDocumentMoniker": "Muslic\\Muslic.csproj",
+              "ToolTip": "C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\Muslic\\Muslic.csproj",
+              "RelativeToolTip": "Muslic\\Muslic.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2023-03-15T15:10:30.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\Muslic\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Muslic\\Properties\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\Muslic\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "Muslic\\Properties\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-03-15T15:10:44.514Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
