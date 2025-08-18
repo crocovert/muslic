@@ -1736,7 +1736,7 @@ namespace Muslic
                                                 projet.reseaux[projet.reseau_actif].links[successeur].pole = depart;
                                                 projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = "";
                                                 //bucket = Convert.ToInt32(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra)), projet.param_affectation_horaire.max_nb_buckets);
-                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
 
                                                 while (bucket >= gga_nq.Count)
                                                 {
@@ -1815,7 +1815,7 @@ namespace Muslic
                                                 projet.reseaux[projet.reseau_actif].links[successeur].ttoll = projet.reseaux[projet.reseau_actif].links[successeur].toll;
                                                 projet.reseaux[projet.reseau_actif].links[successeur].l = projet.reseaux[projet.reseau_actif].links[successeur].longueur;
                                                 //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
 
                                                 while (bucket >= gga_nq.Count)
                                                 {
@@ -1837,7 +1837,7 @@ namespace Muslic
                                 {
                                     fich_log.WriteLine("OD error " + libod + ":" + chaine + ": non existing origin node!");
                                 }
-                                int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                 //         MessageBox.Show(projet.param_affectation_horaire.algorithme.ToString());
                                 while (gga_nq.Count >= id_bucket && bucket_cout_max >= id_bucket)
                                 {
@@ -1976,7 +1976,7 @@ namespace Muslic
 
 
                                                         //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
 
                                                         while (bucket >= gga_nq.Count)
                                                         {
@@ -2031,7 +2031,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[successeur].tmap = projet.reseaux[projet.reseau_actif].links[pivot].tmap;
                                                         projet.reseaux[projet.reseau_actif].links[successeur].ttoll = projet.reseaux[projet.reseau_actif].links[pivot].ttoll + projet.reseaux[projet.reseau_actif].links[successeur].toll;
 
-                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
 
                                                         //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
                                                         while (bucket >= gga_nq.Count)
@@ -2131,7 +2131,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[successeur].ttoll = projet.reseaux[projet.reseau_actif].links[pivot].ttoll + projet.reseaux[projet.reseau_actif].links[successeur].toll;
 
                                                         //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                         while (bucket >= gga_nq.Count)
                                                         {
                                                             gga_nq.Add(new List<int>());
@@ -2172,7 +2172,7 @@ namespace Muslic
                                             {
                                                 int id_service = -1;
                                                 //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                 //successeurs marche à pied
                                                 if (projet.reseaux[projet.reseau_actif].links[successeur].ligne < 0 && projet.param_affectation_horaire.cmap[succ_type] > 0 && projet.reseaux[projet.reseau_actif].links[pivot].tmap + projet.reseaux[projet.reseau_actif].links[successeur].temps < projet.param_affectation_horaire.tmapmax)
                                                 {
@@ -2204,7 +2204,7 @@ namespace Muslic
 
                                                         if (projet.reseaux[projet.reseau_actif].links[successeur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (penalite + projet.reseaux[projet.reseau_actif].links[successeur].temps) * projet.param_affectation_horaire.coef_tmap[succ_type] * projet.param_affectation_horaire.cmap[succ_type] + projet.reseaux[projet.reseau_actif].links[successeur].toll * projet.param_affectation_horaire.ctoll[succ_type])
                                                         {
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Remove(successeur);
                                                             projet.reseaux[projet.reseau_actif].links[successeur].cout = projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[successeur].temps + penalite) * projet.param_affectation_horaire.coef_tmap[succ_type] * projet.param_affectation_horaire.cmap[succ_type] + projet.reseaux[projet.reseau_actif].links[successeur].toll * projet.param_affectation_horaire.ctoll[succ_type];
                                                             projet.reseaux[projet.reseau_actif].links[successeur].h = projet.reseaux[projet.reseau_actif].links[pivot].h + (projet.reseaux[projet.reseau_actif].links[successeur].temps) * projet.param_affectation_horaire.coef_tmap[succ_type] + penalite;
@@ -2235,7 +2235,7 @@ namespace Muslic
 
 
                                                             projet.reseaux[projet.reseau_actif].links[successeur].service = id_service;                                                        //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), ;
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Add(successeur);
                                                             projet.param_affectation_horaire.nb_pop++;
                                                         }
@@ -2267,7 +2267,7 @@ namespace Muslic
 
                                                             if (projet.reseaux[projet.reseau_actif].links[successeur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hf + projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].delta * 1440f - projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cveh[succ_type] + projet.reseaux[projet.reseau_actif].links[successeur].toll * projet.param_affectation_horaire.ctoll[succ_type] && projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hd >= projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].hf)
                                                             {
-                                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                                 gga_nq[bucket].Remove(successeur);
                                                                 projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].delta = projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].delta;
                                                                 projet.reseaux[projet.reseau_actif].links[successeur].service = num_service;
@@ -2289,7 +2289,7 @@ namespace Muslic
                                                                 projet.reseaux[projet.reseau_actif].links[successeur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
                                                                 projet.reseaux[projet.reseau_actif].links[successeur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
                                                                 //bucket = Convert.ToInt32(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                                 gga_nq[bucket].Add(successeur);
                                                                 projet.param_affectation_horaire.nb_pop++;
                                                             }
@@ -2353,7 +2353,7 @@ namespace Muslic
                                                     {
                                                         if (projet.reseaux[projet.reseau_actif].links[successeur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hd) * projet.param_affectation_horaire.cveh[succ_type] + (projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hd + projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].delta * 1440f - projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[succ_type] + (temps_correspondance * projet.param_affectation_horaire.cboa[succ_type]) + projet.reseaux[projet.reseau_actif].links[successeur].toll * projet.param_affectation_horaire.ctoll[succ_type])
                                                         {
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Remove(successeur);
                                                             projet.reseaux[projet.reseau_actif].links[successeur].service = num_service;
                                                             projet.reseaux[projet.reseau_actif].links[successeur].cout = projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hd) * projet.param_affectation_horaire.cveh[succ_type] + (projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].hd + projet.reseaux[projet.reseau_actif].links[successeur].services[num_service].delta * 1440f - projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[succ_type] + (temps_correspondance * projet.param_affectation_horaire.cboa[succ_type]) + projet.reseaux[projet.reseau_actif].links[successeur].toll * projet.param_affectation_horaire.ctoll[succ_type];
@@ -2398,7 +2398,7 @@ namespace Muslic
                                                             }
 
 
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Add(successeur);
                                                             projet.param_affectation_horaire.nb_pop++;
                                                         }
@@ -2926,7 +2926,7 @@ namespace Muslic
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].pole = depart;
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = "";
                                                 //                                    bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                 while (bucket >= gga_nq.Count)
                                                 {
                                                     gga_nq.Add(new List<int>());
@@ -3001,7 +3001,7 @@ namespace Muslic
                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].ttoll = projet.reseaux[projet.reseau_actif].links[predecesseur].toll;
 
                                                 //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                 while (bucket >= gga_nq.Count)
                                                 {
                                                     gga_nq.Add(new List<int>());
@@ -3022,7 +3022,7 @@ namespace Muslic
                                 {
                                     fich_log.WriteLine("OD error" + libod + ":" + chaine + ": non existing destination node!");
                                 }
-                                int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
 
                                 while (gga_nq.Count >= id_bucket && bucket_cout_max >= id_bucket)
                                 {
@@ -3166,7 +3166,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].touche = 1;
 
                                                         //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                         while (bucket >= gga_nq.Count)
                                                         {
                                                             gga_nq.Add(new List<int>());
@@ -3225,7 +3225,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].l = projet.reseaux[projet.reseau_actif].links[pivot].l + projet.reseaux[projet.reseau_actif].links[predecesseur].longueur;
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].touche = 1;
                                                         // bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                         while (bucket >= gga_nq.Count)
                                                         {
                                                             gga_nq.Add(new List<int>());
@@ -3271,7 +3271,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].ttoll = projet.reseaux[projet.reseau_actif].links[pivot].ttoll + projet.reseaux[projet.reseau_actif].links[predecesseur].toll;
 
                                                         //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                         while (bucket >= gga_nq.Count)
                                                         {
                                                             gga_nq.Add(new List<int>());
@@ -3364,7 +3364,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].ttoll = projet.reseaux[projet.reseau_actif].links[pivot].ttoll + projet.reseaux[projet.reseau_actif].links[predecesseur].toll;
 
                                                         //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                         while (bucket >= gga_nq.Count)
                                                         {
                                                             gga_nq.Add(new List<int>());
@@ -3456,7 +3456,7 @@ namespace Muslic
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].ttoll = projet.reseaux[projet.reseau_actif].links[pivot].ttoll + projet.reseaux[projet.reseau_actif].links[predecesseur].toll;
 
                                                         projet.reseaux[projet.reseau_actif].links[predecesseur].l = projet.reseaux[projet.reseau_actif].links[pivot].l + projet.reseaux[projet.reseau_actif].links[predecesseur].longueur;                                                //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                        bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                         while (bucket >= gga_nq.Count)
                                                         {
                                                             gga_nq.Add(new List<int>());
@@ -3478,7 +3478,7 @@ namespace Muslic
                                             else if (projet.reseaux[projet.reseau_actif].links[predecesseur].touche == 1 || projet.reseaux[projet.reseau_actif].links[predecesseur].touche == 2)
                                             {
                                                 //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
 
 
                                                 //successeurs marche à pied pivot MAP
@@ -3515,7 +3515,7 @@ namespace Muslic
                                                         if (projet.reseaux[projet.reseau_actif].links[predecesseur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (penalite + projet.reseaux[projet.reseau_actif].links[predecesseur].temps) * projet.param_affectation_horaire.coef_tmap[pred_type] * projet.param_affectation_horaire.cmap[pred_type] + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type])
                                                         {
 
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Remove(predecesseur);
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].cout = projet.reseaux[projet.reseau_actif].links[pivot].cout + (penalite + projet.reseaux[projet.reseau_actif].links[predecesseur].temps) * projet.param_affectation_horaire.coef_tmap[pred_type] * projet.param_affectation_horaire.cmap[pred_type] + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type];
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].h = projet.reseaux[projet.reseau_actif].links[pivot].h - (projet.reseaux[projet.reseau_actif].links[predecesseur].temps) * projet.param_affectation_horaire.coef_tmap[pred_type] - penalite;
@@ -3538,7 +3538,7 @@ namespace Muslic
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].service = id_service;
 
                                                             //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Add(predecesseur);
                                                             projet.param_affectation_horaire.nb_pop++;
 
@@ -3580,7 +3580,7 @@ namespace Muslic
 
                                                         if (projet.reseaux[projet.reseau_actif].links[predecesseur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (penalite + projet.reseaux[projet.reseau_actif].links[predecesseur].temps) * projet.param_affectation_horaire.coef_tmap[pred_type] * projet.param_affectation_horaire.cmap[pred_type] + projet.param_affectation_horaire.cboa[pivot_type] * temps_correspondance + projet.param_affectation_horaire.cwait[pred_type] * temps_correspondance + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type])
                                                         {
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Remove(predecesseur);
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].cout = projet.reseaux[projet.reseau_actif].links[pivot].cout + (penalite + projet.reseaux[projet.reseau_actif].links[predecesseur].temps) * projet.param_affectation_horaire.coef_tmap[pred_type] * projet.param_affectation_horaire.cmap[pred_type] + projet.param_affectation_horaire.cboa[pivot_type] * temps_correspondance + projet.param_affectation_horaire.cwait[pred_type] * temps_correspondance + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type];
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].h = projet.reseaux[projet.reseau_actif].links[pivot].h - (projet.reseaux[projet.reseau_actif].links[predecesseur].temps) * projet.param_affectation_horaire.coef_tmap[pred_type] - temps_correspondance - penalite;
@@ -3603,7 +3603,7 @@ namespace Muslic
 
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].service = id_service;
                                                             //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Add(predecesseur);
                                                             projet.param_affectation_horaire.nb_pop++;
 
@@ -3635,7 +3635,7 @@ namespace Muslic
 
                                                             if (projet.reseaux[projet.reseau_actif].links[predecesseur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (-projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hd - projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].delta * 1440f + projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cveh[pred_type] + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type] && (projet.reseaux[projet.reseau_actif].links[predecesseur].services[projet.reseaux[projet.reseau_actif].links[predecesseur].service].hf <= projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].hd))
                                                             {
-                                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                                 gga_nq[bucket].Remove(predecesseur);
                                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].service = num_service;
                                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].delta = projet.reseaux[projet.reseau_actif].links[pivot].services[projet.reseaux[projet.reseau_actif].links[pivot].service].delta;
@@ -3658,7 +3658,7 @@ namespace Muslic
                                                                 projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
 
                                                                 //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                                bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                                 gga_nq[bucket].Add(predecesseur);
                                                                 projet.param_affectation_horaire.nb_pop++;
                                                             }
@@ -3722,7 +3722,7 @@ namespace Muslic
                                                     {
                                                         if (projet.reseaux[projet.reseau_actif].links[predecesseur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hd) * projet.param_affectation_horaire.cveh[pred_type] + (-projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].delta * 1440f + projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[pred_type] + (temps_correspondance * projet.param_affectation_horaire.cboa[pivot_type]) + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type])
                                                         {
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Remove(predecesseur);
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].service = num_service;
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].cout = projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hd) * projet.param_affectation_horaire.cveh[pred_type] + (-projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].delta * 1440f + projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[pred_type] + (temps_correspondance * projet.param_affectation_horaire.cboa[pivot_type]) + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type];
@@ -3752,7 +3752,7 @@ namespace Muslic
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i + "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i + projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
 
                                                             //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Add(predecesseur);
                                                             projet.param_affectation_horaire.nb_pop++;
                                                         }
@@ -3816,7 +3816,7 @@ namespace Muslic
                                                         if (projet.reseaux[projet.reseau_actif].links[predecesseur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hd) * projet.param_affectation_horaire.cveh[pred_type] + (-projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].delta * 1440f + projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[pred_type] + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type])
                                                         {
 
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Remove(predecesseur);
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].service = num_service;
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].cout = projet.reseaux[projet.reseau_actif].links[pivot].cout + (projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hd) * projet.param_affectation_horaire.cveh[pred_type] + (-projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].hf - projet.reseaux[projet.reseau_actif].links[predecesseur].services[num_service].delta * 1440f + projet.reseaux[projet.reseau_actif].links[pivot].h) * projet.param_affectation_horaire.cwait[pred_type] + projet.reseaux[projet.reseau_actif].links[predecesseur].toll * projet.param_affectation_horaire.ctoll[pred_type];
@@ -3845,7 +3845,7 @@ namespace Muslic
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].pole = projet.reseaux[projet.reseau_actif].links[pivot].pole;
                                                             projet.reseaux[projet.reseau_actif].links[predecesseur].poleV2 = "|" + projet.reseaux[projet.reseau_actif].nodes[projet.reseaux[projet.reseau_actif].links[predecesseur].nd].i + projet.reseaux[projet.reseau_actif].links[pivot].poleV2;
                                                             //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
-                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets)));
+                                                            bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[predecesseur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                                             gga_nq[bucket].Add(predecesseur);
                                                             projet.param_affectation_horaire.nb_pop++;
                                                         }
