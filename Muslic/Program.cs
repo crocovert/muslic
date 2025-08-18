@@ -1859,7 +1859,7 @@ namespace Muslic
                                     else
                                     {
                                         int k, id_pivot = -1; double cout_max = 1e38f;
-                                        for (k = 0; k < gga_nq[id_bucket].Count; k++)
+                                        for (k = 0; k <= gga_nq[id_bucket].Count; k++)
                                         {
                                             if (projet.reseaux[projet.reseau_actif].links[gga_nq[id_bucket][k]].cout < cout_max)
                                             {
@@ -3044,7 +3044,7 @@ namespace Muslic
                                     else
                                     {
                                         int k, id_pivot = -1; double cout_max = 1e38f;
-                                        for (k = 0; k < gga_nq[id_bucket].Count; k++)
+                                        for (k = 0; k <= gga_nq[id_bucket].Count; k++)
                                         {
                                             if (projet.reseaux[projet.reseau_actif].links[gga_nq[id_bucket][k]].cout < cout_max)
                                             {
