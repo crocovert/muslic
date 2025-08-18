@@ -3030,7 +3030,7 @@ namespace Muslic
                                     while (gga_nq[id_bucket].Count == 0)
                                     {
                                         id_bucket++;
-                                        if (id_bucket == gga_nq.Count+1 || bucket_cout_max == id_bucket+1)
+                                        if (id_bucket == gga_nq.Count  || bucket_cout_max  == id_bucket)
                                         {
                                             goto fin_gga2;
                                         }
