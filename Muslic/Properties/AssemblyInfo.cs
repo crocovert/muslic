@@ -31,5 +31,10 @@ using System.Runtime.InteropServices;
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut 
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
+<<<<<<< HEAD
 [assembly: AssemblyVersion("1.0.5.1")]
 [assembly: AssemblyFileVersion("1.0.5.1")]
+=======
+[assembly: AssemblyVersion("1.0.4.16")]
+[assembly: AssemblyFileVersion("1.0.4.16")]
+>>>>>>> parent of dc34348 (1.0.5.0)
