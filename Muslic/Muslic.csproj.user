@@ -4,13 +4,13 @@
     <StartArguments>"C:\Users\palmierp\Documents\Google Drive\Musliw64\Musliw\bin\x64\Debugmusliw.ini"</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <StartArguments>"C:/Users/patrick.palmier/Desktop/Calcul_distances/EMC2_Artois_Gohelle_2024/reseau_routier_AG_VP_complet_hc_out.txt" ""C:/Users/patrick.palmier/Desktop/Calcul_distances/EMC2_Artois_Gohelle_2024/mat_test_werwik.txt" ""C:/Users/patrick.palmier/Desktop/Calcul_distances/EMC2_Artois_Gohelle_2024/res_werwik"</StartArguments>
+    <StartArguments>"C:/Users/patrick.palmier/Desktop/resultat_reseau/reseau_routier_local_longueur_complet_avec_connecteurs_m.txt" "C:/Users/patrick.palmier/Desktop/resultat_reseau/matrice_iti_cyclables.txt" "C:/Users/patrick.palmier/Desktop/resultat_reseau/resultat_iti_cyclables2" "C:/Users/patrick.palmier/Desktop/resultat_reseau/parametres_titi_cyclables.txt"</StartArguments>
     <StartWorkingDirectory>
     </StartWorkingDirectory>
     <StartAction>Project</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <StartArguments>"G:\Etudes\MEL\isochrone_MEL\reseau_multimodal_MEL_2018.txt" "G:\Etudes\MEL\isochrone_MEL\mat_MEL_a9h.txt" "G:\Etudes\MEL\isochrone_MEL\titi" "G:\Etudes\MEL\isochrone_MEL\test_param.txt"</StartArguments>
+    <StartArguments>"C:/Users/patrick.palmier/Desktop/Calcul_distances/EMC2_Artois_Gohelle_2024/reseau_vp_AG_complet_1_4.txt"  "C:/Users/patrick.palmier/Desktop/Calcul_distances/EMC2_Artois_Gohelle_2024/matrices\mat_101.txt"  "C:/Users/patrick.palmier/Desktop/Calcul_distances/EMC2_Artois_Gohelle_2024/res/res_mat_werwik.txt" "C:/Users/patrick.palmier/Desktop/Calcul_distances/EMC2_Artois_Gohelle_2024/param_werwik.txt"</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
     <PublishUrlHistory>publish\</PublishUrlHistory>
