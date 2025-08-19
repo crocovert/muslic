@@ -1839,13 +1839,14 @@ namespace Muslic
                                 }
                                 int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
                                 //         MessageBox.Show(projet.param_affectation_horaire.algorithme.ToString());
+                                
                                 while (gga_nq.Count >= id_bucket && bucket_cout_max >= id_bucket)
                                 {
 
                                     while (gga_nq[id_bucket].Count == 0)
                                     {
                                         id_bucket++;
-                                        if (id_bucket >= gga_nq.Count || id_bucket >= bucket_cout_max )
+                                        if (id_bucket >= gga_nq.Count || id_bucket >= bucket_cout_max+1 )
                                         {
                                             goto fin_gga;
                                         }
@@ -1858,7 +1859,7 @@ namespace Muslic
                                     }
                                     else
                                     {
-                                        int k, id_pivot = -1; double cout_max = 1e38f;
+                                        int k, id_pivot = -1; double cout_max = 1e38;
                                         for (k = 0; k <= gga_nq[id_bucket].Count; k++)
                                         {
                                             if (projet.reseaux[projet.reseau_actif].links[gga_nq[id_bucket][k]].cout < cout_max)
@@ -1977,7 +1978,7 @@ namespace Muslic
 
                                                         //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
                                                         bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
-
+                                                     
                                                         while (bucket >= gga_nq.Count)
                                                         {
                                                             gga_nq.Add(new List<int>());
@@ -2173,6 +2174,7 @@ namespace Muslic
                                                 int id_service = -1;
                                                 //bucket = (int)Math.Truncate(Math.Min((Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout, 2) / projet.param_affectation_horaire.param_dijkstra), projet.param_affectation_horaire.max_nb_buckets));
                                                 bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
+                                               
                                                 //successeurs marche à pied
                                                 if (projet.reseaux[projet.reseau_actif].links[successeur].ligne < 0 && projet.param_affectation_horaire.cmap[succ_type] > 0 && projet.reseaux[projet.reseau_actif].links[pivot].tmap + projet.reseaux[projet.reseau_actif].links[successeur].temps < projet.param_affectation_horaire.tmapmax)
                                                 {
@@ -2201,7 +2203,7 @@ namespace Muslic
                                                     }
                                                     if (test_periode == true)
                                                     {
-
+                                                        
                                                         if (projet.reseaux[projet.reseau_actif].links[successeur].cout > projet.reseaux[projet.reseau_actif].links[pivot].cout + (penalite + projet.reseaux[projet.reseau_actif].links[successeur].temps) * projet.param_affectation_horaire.coef_tmap[succ_type] * projet.param_affectation_horaire.cmap[succ_type] + projet.reseaux[projet.reseau_actif].links[successeur].toll * projet.param_affectation_horaire.ctoll[succ_type])
                                                         {
                                                             bucket = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.reseaux[projet.reseau_actif].links[successeur].cout / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
@@ -3030,7 +3032,7 @@ namespace Muslic
                                     while (gga_nq[id_bucket].Count == 0)
                                     {
                                         id_bucket++;
-                                        if (id_bucket >= gga_nq.Count  || id_bucket>= bucket_cout_max)
+                                        if (id_bucket >= gga_nq.Count  || id_bucket>= bucket_cout_max+1)
                                         {
                                             goto fin_gga2;
                                         }
