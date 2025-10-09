@@ -1836,8 +1836,9 @@ namespace Muslic
                                 else
                                 {
                                     fich_log.WriteLine("OD error " + libod + ":" + chaine + ": non existing origin node!");
+                                    id_bucket = 1;
                                 }
-                                int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));
+                                int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets - 1)));
                                 //         MessageBox.Show(projet.param_affectation_horaire.algorithme.ToString());
                                 
                                 while (gga_nq.Count >= id_bucket && bucket_cout_max >= id_bucket)
@@ -3022,6 +3023,7 @@ namespace Muslic
                                 }
                                 else
                                 {
+                                    id_bucket++;
                                     fich_log.WriteLine("OD error" + libod + ":" + chaine + ": non existing destination node!");
                                 }
                                 int bucket_cout_max = Convert.ToInt32(Math.Truncate(Math.Min(Math.Pow(projet.param_affectation_horaire.temps_max / projet.param_affectation_horaire.param_dijkstra, projet.param_affectation_horaire.pu), projet.param_affectation_horaire.max_nb_buckets-1)));

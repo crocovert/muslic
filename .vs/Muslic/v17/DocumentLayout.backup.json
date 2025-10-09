@@ -6,15 +6,18 @@
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Muslic||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\muslic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|c:\\users\\patrick.palmier\\documents\\github\\muslic\\muslic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|solutionrelative:muslic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\patrick.palmier\\AppData\\Local\\Temp\\.vsdbgsrc\\8caa55885db827e4d60f3d5c73afc8fffa843cc71a5a1ef73ed88dc8694fb812\\ThrowHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\muslic\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|solutionrelative:muslic\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|c:\\users\\patrick.palmier\\documents\\github\\muslic\\muslic\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
+      "AbsoluteMoniker": "D:0:0:{70C5482C-6C8E-4290-8CE2-C1105D1E643D}|Muslic\\Muslic.csproj|c:\\users\\patrick.palmier\\documents\\github\\muslic\\muslic\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|cc4014f5-b18d-439c-9352-f99d984cca85"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,11 +27,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ThrowHelper.cs",
+              "DocumentMoniker": "C:\\Users\\patrick.palmier\\AppData\\Local\\Temp\\.vsdbgsrc\\8caa55885db827e4d60f3d5c73afc8fffa843cc71a5a1ef73ed88dc8694fb812\\ThrowHelper.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\8caa55885db827e4d60f3d5c73afc8fffa843cc71a5a1ef73ed88dc8694fb812\\ThrowHelper.cs",
+              "ToolTip": "C:\\Users\\patrick.palmier\\AppData\\Local\\Temp\\.vsdbgsrc\\8caa55885db827e4d60f3d5c73afc8fffa843cc71a5a1ef73ed88dc8694fb812\\ThrowHelper.cs [Lecture seule]",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\8caa55885db827e4d60f3d5c73afc8fffa843cc71a5a1ef73ed88dc8694fb812\\ThrowHelper.cs [Lecture seule]",
+              "ViewState": "AgIAACsAAAAAAAAAAAAowDYAAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T15:09:43.622Z",
+              "EditorCaption": " [Lecture seule]"
             },
             {
               "$type": "Document",
@@ -38,7 +54,7 @@
               "RelativeDocumentMoniker": "Muslic\\Program.cs",
               "ToolTip": "C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\Muslic\\Program.cs",
               "RelativeToolTip": "Muslic\\Program.cs",
-              "ViewState": "AgIAAMYLAAAAAAAAAAAAANoLAABnAAAAAAAAAA==",
+              "ViewState": "AgIAAKsLAAAAAAAAAAAowNELAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-03-15T13:05:51.755Z",
               "EditorCaption": ""
@@ -57,7 +73,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\patrick.palmier\\Documents\\GitHub\\muslic\\Muslic\\Properties\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "Muslic\\Properties\\AssemblyInfo.cs",
